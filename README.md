@@ -23,7 +23,7 @@ npm run build
 ```
 
 ## Design system
-- Palette: evergreen `#2E4A3D` (foundation/headings), brand gold `#C8A45A` (accent fills/buttons/rules, sampled from the logo underline), gold-dark `#9A7A2E` (foreground gold for text/icons, passes contrast), cream `#F6F2EA`, ink `#1F1D1A`, taupe `#8A8175`. See `app/globals.css`.
+- Palette: evergreen `#1A323D` (foundation/headings), brand gold `#C8A45A` (accent fills/buttons/rules, sampled from the logo underline), gold-dark `#9A7A2E` (foreground gold for text/icons, passes contrast), cream `#F6F2EA`, ink `#1F1D1A`, taupe `#8A8175`. See `app/globals.css`.
 - Voice: science-backed, warm, unpretentious. No em-dashes, no hype, no AI-tell vocabulary.
 - Imagery: real, warm-graded documentary photos only. `components/PhotoSlot.tsx` marks every spot a real photo belongs until Megan's shoot happens.
 
