@@ -32,7 +32,7 @@ export default function Accessibility() {
           <h2 className="mt-8 font-display text-2xl text-evergreen">Tell us if something is hard to use</h2>
           <p>
             If you run into a barrier on this site, please let us know through the{" "}
-            <a className="text-clay hover:text-clay-dark" href="/contact">
+            <a className="text-evergreen underline hover:text-gold-dark" href="/contact">
               contact page
             </a>{" "}
             or at {site.email}. We will do our best to fix it and to help you get

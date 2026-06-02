@@ -46,7 +46,7 @@ export default function Footer() {
                   href={site.bookingUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium text-clay hover:text-clay-dark"
+                  className="font-medium text-gold-dark hover:text-gold-dark"
                 >
                   Book online
                 </a>

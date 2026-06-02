@@ -31,7 +31,7 @@ export function Eyebrow({ children }: { children: React.ReactNode }) {
 // The 2-3 sentence above-the-fold answer an AI engine can lift (build brief §3.2).
 export function AnswerSummary({ children }: { children: React.ReactNode }) {
   return (
-    <p className="max-w-prose border-l-2 border-clay pl-5 text-lg leading-relaxed text-ink/85">
+    <p className="max-w-prose border-l-2 border-gold pl-5 text-lg leading-relaxed text-ink/85">
       {children}
     </p>
   );

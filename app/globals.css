@@ -8,8 +8,9 @@
   --evergreen-dark: #233a30;
   --cream: #f6f2ea;
   --soft-white: #fcfbf8;
-  --clay: #c26b4a;
-  --clay-dark: #a8542f;
+  /* Brand gold, sampled from the MLK Hair logo underline */
+  --gold: #c8a45a;
+  --gold-dark: #9a7a2e;
   --ink: #1f1d1a;
   --taupe: #8a8175;
   --line: #e4ddcf;
@@ -44,7 +45,7 @@ h1, h2, h3, h4 {
   letter-spacing: 0.18em;
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--clay);
+  color: var(--gold-dark);
 }
 
 /* Body prose helper for long-form pages */
@@ -78,11 +79,12 @@ h1, h2, h3, h4 {
   background-color: var(--evergreen-dark);
 }
 .btn-accent {
-  background-color: var(--clay);
-  color: #fff;
+  background-color: var(--gold);
+  color: var(--ink);
 }
 .btn-accent:hover {
-  background-color: var(--clay-dark);
+  background-color: var(--gold-dark);
+  color: var(--cream);
 }
 .btn-outline {
   background-color: transparent;

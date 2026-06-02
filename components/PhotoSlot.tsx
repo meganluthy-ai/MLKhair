@@ -10,11 +10,11 @@ export default function PhotoSlot({
 }: {
   caption: string;
   ratio?: string;
-  tone?: "evergreen" | "clay" | "cream";
+  tone?: "evergreen" | "gold" | "cream";
 }) {
   const bg =
-    tone === "clay"
-      ? "bg-clay/10 border-clay/30"
+    tone === "gold"
+      ? "bg-gold/10 border-gold/30"
       : tone === "cream"
         ? "bg-cream border-line"
         : "bg-evergreen/10 border-evergreen/25";

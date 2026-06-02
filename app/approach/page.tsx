@@ -91,7 +91,7 @@ export default function Approach() {
           {method.map((m) => (
             <Reveal key={m.n} className="bg-soft-white">
               <div className="h-full p-8">
-                <span className="font-display text-3xl text-clay">{m.n}</span>
+                <span className="font-display text-3xl text-gold-dark">{m.n}</span>
                 <h2 className="mt-3 font-display text-2xl text-evergreen">
                   {m.title}
                 </h2>

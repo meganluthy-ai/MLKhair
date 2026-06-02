@@ -90,7 +90,7 @@ export default function QuizForm() {
       <div className="mb-8">
         <div className="h-1.5 w-full overflow-hidden rounded-full bg-line">
           <div
-            className="h-full rounded-full bg-clay transition-all duration-300"
+            className="h-full rounded-full bg-gold transition-all duration-300"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -219,7 +219,7 @@ export default function QuizForm() {
       </div>
 
       {status === "error" && (
-        <p className="mt-4 text-sm text-clay-dark">
+        <p className="mt-4 text-sm text-gold-dark">
           Something went wrong sending your results. Please try again, or book
           directly online.
         </p>

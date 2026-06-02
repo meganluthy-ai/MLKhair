@@ -23,7 +23,7 @@ export default function FAQ({ items }: { items: Faq[] }) {
               <span className="font-display text-lg font-semibold text-evergreen">
                 {item.q}
               </span>
-              <span className="shrink-0 text-clay">
+              <span className="shrink-0 text-gold-dark">
                 {isOpen ? <Minus size={20} /> : <Plus size={20} />}
               </span>
             </button>

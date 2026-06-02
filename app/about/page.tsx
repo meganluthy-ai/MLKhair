@@ -116,7 +116,7 @@ export default function About() {
           {credentials.map((c) => (
             <Reveal key={c.title}>
               <div className="h-full rounded-md border border-line bg-soft-white p-7">
-                <c.icon className="text-clay" size={28} strokeWidth={1.5} />
+                <c.icon className="text-gold-dark" size={28} strokeWidth={1.5} />
                 <h3 className="mt-4 font-display text-xl text-evergreen">
                   {c.title}
                 </h3>

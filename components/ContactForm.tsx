@@ -81,7 +81,7 @@ export default function ContactForm() {
         {status === "sending" ? "Sending..." : "Send message"}
       </button>
       {status === "error" && (
-        <p className="text-sm text-clay-dark">
+        <p className="text-sm text-gold-dark">
           Something went wrong. Please try again, or book directly online.
         </p>
       )}

@@ -40,7 +40,7 @@ export default function Contact() {
         <div className="grid gap-12 md:grid-cols-[1fr_1.2fr]">
           <div className="space-y-8">
             <div className="flex gap-4">
-              <MapPin className="mt-1 shrink-0 text-clay" size={22} />
+              <MapPin className="mt-1 shrink-0 text-gold-dark" size={22} />
               <div>
                 <h2 className="font-display text-xl text-evergreen">Locations</h2>
                 <p className="mt-1 text-ink/80">
@@ -57,7 +57,7 @@ export default function Contact() {
             </div>
 
             <div className="flex gap-4">
-              <Video className="mt-1 shrink-0 text-clay" size={22} />
+              <Video className="mt-1 shrink-0 text-gold-dark" size={22} />
               <div>
                 <h2 className="font-display text-xl text-evergreen">Remote consults</h2>
                 <p className="mt-1 text-ink/80">
@@ -68,7 +68,7 @@ export default function Contact() {
             </div>
 
             <div className="flex gap-4">
-              <CalendarCheck className="mt-1 shrink-0 text-clay" size={22} />
+              <CalendarCheck className="mt-1 shrink-0 text-gold-dark" size={22} />
               <div>
                 <h2 className="font-display text-xl text-evergreen">Booking</h2>
                 <p className="mt-1 text-ink/80">
@@ -78,7 +78,7 @@ export default function Contact() {
                   href={site.bookingUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-1 inline-block font-medium text-clay hover:text-clay-dark"
+                  className="mt-1 inline-block font-medium text-gold-dark hover:text-gold-dark"
                 >
                   Book online
                 </a>

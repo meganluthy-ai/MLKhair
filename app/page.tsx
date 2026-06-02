@@ -123,7 +123,7 @@ export default function Home() {
                 className="flex h-full flex-col rounded-md border border-line bg-cream p-7"
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
-                <p.icon className="text-clay" size={28} strokeWidth={1.5} />
+                <p.icon className="text-gold-dark" size={28} strokeWidth={1.5} />
                 <p className="eyebrow mt-5">{p.eyebrow}</p>
                 <h3 className="mt-2 font-display text-2xl text-evergreen">
                   {p.title}
@@ -131,7 +131,7 @@ export default function Home() {
                 <p className="mt-3 flex-1 text-ink/80">{p.body}</p>
                 <Link
                   href={p.href}
-                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-clay hover:text-clay-dark"
+                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-dark hover:text-gold-dark"
                 >
                   {p.cta} <ArrowRight size={16} />
                 </Link>
@@ -148,7 +148,7 @@ export default function Home() {
             <PhotoSlot
               caption="Megan at the microscope reviewing a scalp analysis"
               ratio="aspect-[5/4]"
-              tone="clay"
+              tone="gold"
             />
           </Reveal>
           <Reveal>
@@ -172,7 +172,7 @@ export default function Home() {
             </div>
             <Link
               href="/about"
-              className="mt-6 inline-flex items-center gap-1.5 font-semibold text-clay hover:text-clay-dark"
+              className="mt-6 inline-flex items-center gap-1.5 font-semibold text-gold-dark hover:text-gold-dark"
             >
               Read Megan&rsquo;s story <ArrowRight size={16} />
             </Link>
@@ -202,7 +202,7 @@ export default function Home() {
             </div>
             <Link
               href="/approach"
-              className="mt-6 inline-flex items-center gap-1.5 font-semibold text-clay hover:text-clay-dark"
+              className="mt-6 inline-flex items-center gap-1.5 font-semibold text-gold-dark hover:text-gold-dark"
             >
               See the full method <ArrowRight size={16} />
             </Link>

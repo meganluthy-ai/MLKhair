@@ -106,7 +106,7 @@ export default function HairLoss() {
             </div>
           </div>
           <Reveal>
-            <PhotoSlot caption="Scalp analysis in progress, hands-on and warm-graded" tone="clay" />
+            <PhotoSlot caption="Scalp analysis in progress, hands-on and warm-graded" tone="gold" />
           </Reveal>
         </div>
       </section>
@@ -174,7 +174,7 @@ export default function HairLoss() {
           {steps.map((s) => (
             <Reveal key={s.n}>
               <div className="flex h-full flex-col rounded-md border border-line bg-cream p-7">
-                <span className="font-display text-4xl text-clay">{s.n}</span>
+                <span className="font-display text-4xl text-gold-dark">{s.n}</span>
                 <h3 className="mt-3 font-display text-xl text-evergreen">
                   {s.title}
                 </h3>
@@ -184,7 +184,7 @@ export default function HairLoss() {
           ))}
         </div>
         <Reveal>
-          <p className="mt-10 max-w-prose rounded-md border-l-2 border-clay bg-soft-white p-5 text-ink/80">
+          <p className="mt-10 max-w-prose rounded-md border-l-2 border-gold bg-soft-white p-5 text-ink/80">
             A note on timing, because it matters. Around month three, many people
             feel like nothing is working and want to quit. That is usually the
             moment the plan is starting to take hold under the surface. Megan will

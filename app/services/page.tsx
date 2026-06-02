@@ -101,7 +101,7 @@ export default function Services() {
 
         {/* OPEN ITEM (brief §7.3): confirm service list + whether to publish prices */}
         <Reveal>
-          <p className="mt-10 max-w-prose rounded-md border border-dashed border-clay/50 bg-soft-white p-5 text-sm text-taupe">
+          <p className="mt-10 max-w-prose rounded-md border border-dashed border-gold/50 bg-soft-white p-5 text-sm text-taupe">
             Pricing and the final service list are confirmed during booking.
             Decide with Megan whether to publish prices, show &ldquo;starting
             at&rdquo; rates, or keep them to consultation, then this section

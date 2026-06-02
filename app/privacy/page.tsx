@@ -44,7 +44,7 @@ export default function Privacy() {
           <p>
             You can unsubscribe from emails at any time, and you can ask us to
             update or delete your information by contacting us through the{" "}
-            <a className="text-clay hover:text-clay-dark" href="/contact">
+            <a className="text-evergreen underline hover:text-gold-dark" href="/contact">
               contact page
             </a>
             .
