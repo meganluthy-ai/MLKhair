@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter_Tight } from "next/font/google";
 import "./globals.css";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
-import { localBusinessSchema, jsonLd } from "@/lib/schema";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -49,15 +46,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${fraunces.variable} ${interTight.variable}`}>
-      <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={jsonLd(localBusinessSchema())}
-        />
-        <Nav />
-        <main>{children}</main>
-        <Footer />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

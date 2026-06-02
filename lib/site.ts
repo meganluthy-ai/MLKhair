@@ -57,6 +57,7 @@ export const nav = [
   { label: "Trichology", href: "/trichology" },
   { label: "Salon", href: "/services" },
   { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
   { label: "Quiz", href: "/quiz" },
   { label: "Contact", href: "/contact" },
 ];
