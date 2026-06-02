@@ -10,26 +10,53 @@ export const metadata: Metadata = {
   alternates: { canonical: "/services" },
 };
 
-const categories = [
+// Real menu and pricing from Megan's service flyer.
+type ServiceItem = { name: string; price: string; desc?: string };
+const categories: { title: string; note?: string; items: ServiceItem[] }[] = [
   {
-    title: "Cuts & Styling",
-    body: "Precision cuts for every length and texture, finished with a style that works on day one and on the days you do it yourself. Seventeen years of practice behind every pass.",
-    items: ["Women's cut and style", "Men's cut", "Children's cut", "Bang and neck trims"],
+    title: "Color & Texture",
+    items: [
+      { name: "Root Touch-Up", price: "$85" },
+      { name: "Root Touch-Up + Refresher", price: "$105" },
+      { name: "Highlights (partial or full)", price: "$125+" },
+      { name: "Lived-In Color (partial or full)", price: "$176+" },
+      { name: "Keratin Smoothing", price: "$125" },
+      { name: "Toner", price: "$45" },
+    ],
   },
   {
-    title: "Color",
-    body: "Color that respects the health of your hair, from full coverage to dimensional highlights and balayage. Healthy hair holds color better, and Megan builds the plan around keeping it strong.",
-    items: ["All-over color", "Highlights and balayage", "Root touch-up", "Gloss and toner", "Color correction by consultation"],
+    title: "Cut & Finish",
+    note: "Comes with a wash and style.",
+    items: [
+      { name: "Women's Haircut", price: "$40" },
+      { name: "Men's Haircut", price: "$30" },
+      { name: "Kids Cut", price: "$25" },
+    ],
   },
   {
-    title: "Smoothing & Keratin",
-    body: "Smoothing and keratin treatments that calm frizz, cut down drying time, and make day-to-day styling easier, matched to your hair type rather than applied the same to everyone.",
-    items: ["Keratin smoothing treatment", "Express smoothing"],
-  },
-  {
-    title: "Scalp Treatments & Head Spa",
-    body: "Professional scalp treatments and a relaxing head-spa experience that cleanse, calm, and reset the scalp. A healthy scalp is where healthy hair starts, so this is good for your hair and it feels wonderful.",
-    items: ["Head-spa scalp treatment", "Deep cleanse and exfoliation", "Scalp health add-on to any service"],
+    title: "Hair & Scalp Solutions",
+    items: [
+      {
+        name: "Hair & Scalp Analysis",
+        price: "$75",
+        desc: "Identify the causes of hair loss, thinning, or scalp concerns.",
+      },
+      {
+        name: "Express Scalp Treatment",
+        price: "$65",
+        desc: "Support scalp health and improve the follicle environment.",
+      },
+      {
+        name: "Trichologist-Led Head Spa",
+        price: "$145",
+        desc: "A deep treatment and real relaxation to support healthy hair growth.",
+      },
+      {
+        name: "Tyrell Deep Conditioning",
+        price: "$75",
+        desc: "Repair dry, damaged, or frizzy strands.",
+      },
+    ],
   },
 ];
 
@@ -78,36 +105,46 @@ export default function Services() {
       </Section>
 
       <Section alt>
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="mx-auto grid max-w-4xl gap-10">
           {categories.map((c) => (
             <Reveal key={c.title}>
-              <div className="h-full rounded-md border border-line bg-cream p-8">
-                <h2 className="font-display text-2xl text-evergreen">{c.title}</h2>
-                <p className="mt-3 text-ink/80">{c.body}</p>
-                <ul className="mt-5 space-y-2 border-t border-line pt-5">
+              <div className="rounded-md border border-line bg-cream p-8">
+                <div className="flex items-baseline justify-between gap-4 border-b border-line pb-4">
+                  <h2 className="font-display text-2xl text-evergreen">
+                    {c.title}
+                  </h2>
+                  {c.note && (
+                    <span className="text-xs text-taupe">{c.note}</span>
+                  )}
+                </div>
+                <ul className="mt-5 space-y-4">
                   {c.items.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-baseline justify-between gap-4 text-sm"
-                    >
-                      <span className="text-ink/85">{item}</span>
+                    <li key={item.name}>
+                      <div className="flex items-baseline justify-between gap-4">
+                        <span className="font-medium text-ink">{item.name}</span>
+                        <span className="shrink-0 font-display text-lg text-gold-dark">
+                          {item.price}
+                        </span>
+                      </div>
+                      {item.desc && (
+                        <p className="mt-1 max-w-prose text-sm text-taupe">
+                          {item.desc}
+                        </p>
+                      )}
                     </li>
                   ))}
                 </ul>
               </div>
             </Reveal>
           ))}
+          <Reveal>
+            <p className="text-sm text-taupe">
+              Prices are a starting point. Color and corrective work vary with
+              length, density, and what your hair needs, so the final quote is
+              confirmed at your appointment.
+            </p>
+          </Reveal>
         </div>
-
-        {/* OPEN ITEM (brief §7.3): confirm service list + whether to publish prices */}
-        <Reveal>
-          <p className="mt-10 max-w-prose rounded-md border border-dashed border-gold/50 bg-soft-white p-5 text-sm text-taupe">
-            Pricing and the final service list are confirmed during booking.
-            Decide with Megan whether to publish prices, show &ldquo;starting
-            at&rdquo; rates, or keep them to consultation, then this section
-            updates in one place.
-          </p>
-        </Reveal>
       </Section>
 
       <Section>

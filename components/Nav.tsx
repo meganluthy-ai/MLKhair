@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { nav, site } from "@/lib/site";
@@ -25,8 +26,15 @@ export default function Nav() {
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5">
-        <Link href="/" className="font-display text-xl font-semibold text-evergreen">
-          MLK Hair
+        <Link href="/" aria-label="MLK Hair home" className="flex items-center">
+          <Image
+            src="/logo-nav.png"
+            alt="MLK Hair"
+            width={878}
+            height={174}
+            priority
+            className="h-8 w-auto md:h-9"
+          />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">

@@ -15,10 +15,10 @@ export const site = {
   // Booking stays on Acuity (build brief). Every CTA points here.
   bookingUrl: "https://MeganKeckHair.as.me",
 
-  // Contact — OPEN (brief §7.6): confirm public phone + how to present addresses
-  // given the private/confidential positioning.
-  phone: "", // OPEN
-  email: "hello@mlkhair.com", // placeholder until confirmed
+  // Contact (from Megan's card + pricing menu)
+  phone: "208-390-6695",
+  phoneHref: "tel:+12083906695",
+  email: "megan@mlkhair.com",
 
   locations: [
     {

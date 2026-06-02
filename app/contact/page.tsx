@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { MapPin, Video, CalendarCheck } from "lucide-react";
+import { MapPin, Video, CalendarCheck, Phone, Mail } from "lucide-react";
 import { Section, Eyebrow, BookButton } from "@/components/ui";
 import ContactForm from "@/components/ContactForm";
 import { localBusinessSchema, jsonLd } from "@/lib/schema";
@@ -78,9 +78,35 @@ export default function Contact() {
                   href={site.bookingUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-1 inline-block font-medium text-gold-dark hover:text-gold-dark"
+                  className="mt-1 inline-block font-medium text-evergreen underline hover:text-gold-dark"
                 >
                   Book online
+                </a>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <Phone className="mt-1 shrink-0 text-gold-dark" size={22} />
+              <div>
+                <h2 className="font-display text-xl text-evergreen">Call or text</h2>
+                <a
+                  href={site.phoneHref}
+                  className="mt-1 inline-block text-ink/80 hover:text-evergreen"
+                >
+                  {site.phone}
+                </a>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <Mail className="mt-1 shrink-0 text-gold-dark" size={22} />
+              <div>
+                <h2 className="font-display text-xl text-evergreen">Email</h2>
+                <a
+                  href={`mailto:${site.email}`}
+                  className="mt-1 inline-block text-ink/80 hover:text-evergreen"
+                >
+                  {site.email}
                 </a>
               </div>
             </div>
