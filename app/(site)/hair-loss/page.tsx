@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Section, Eyebrow, AnswerSummary, BookButton, QuizButton } from "@/components/ui";
 import Reveal from "@/components/Reveal";
 import FAQ from "@/components/FAQ";
-import PhotoSlot from "@/components/PhotoSlot";
+import Photo from "@/components/Photo";
 import { faqSchema, jsonLd, type Faq } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -106,7 +106,12 @@ export default function HairLoss() {
             </div>
           </div>
           <Reveal>
-            <PhotoSlot caption="Scalp analysis in progress, hands-on and warm-graded" tone="gold" />
+            <Photo
+              src="/images/scalp-analysis.jpg"
+              alt="Megan performing a scalp analysis with a digital trichoscope"
+              ratio="aspect-[4/5]"
+              priority
+            />
           </Reveal>
         </div>
       </section>

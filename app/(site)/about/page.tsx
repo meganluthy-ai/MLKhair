@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Award, ShieldCheck, MapPin } from "lucide-react";
 import { Section, Eyebrow, AnswerSummary, BookButton } from "@/components/ui";
 import Reveal from "@/components/Reveal";
-import PhotoSlot from "@/components/PhotoSlot";
+import Photo from "@/components/Photo";
 import { personSchema, localBusinessSchema, jsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -45,7 +45,12 @@ export default function About() {
       <section className="bg-cream">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-[0.9fr_1.1fr] md:py-24">
           <Reveal>
-            <PhotoSlot caption="Megan, portrait in the suite, warm and approachable" tone="evergreen" />
+            <Photo
+              src="/images/megan-suite.jpg"
+              alt="Megan Luthy in her private hair studio"
+              ratio="aspect-[4/5]"
+              priority
+            />
           </Reveal>
           <div>
             <Eyebrow>About Megan</Eyebrow>

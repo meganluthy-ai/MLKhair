@@ -4,7 +4,7 @@ import { ArrowRight, Microscope, Scissors, Sparkles } from "lucide-react";
 import { Section, Eyebrow, AnswerSummary, BookButton, QuizButton } from "@/components/ui";
 import Reveal from "@/components/Reveal";
 import FAQ from "@/components/FAQ";
-import PhotoSlot from "@/components/PhotoSlot";
+import Photo from "@/components/Photo";
 import { site } from "@/lib/site";
 import { faqSchema, jsonLd, type Faq } from "@/lib/schema";
 
@@ -100,9 +100,11 @@ export default function Home() {
           </div>
 
           <Reveal>
-            <PhotoSlot
-              caption="Megan in her private suite, candid and warm-graded"
+            <Photo
+              src="/images/megan-suite.jpg"
+              alt="Megan Luthy in her private hair studio"
               ratio="aspect-[4/5]"
+              priority
             />
           </Reveal>
         </div>
@@ -145,10 +147,10 @@ export default function Home() {
       <Section>
         <div className="grid items-center gap-10 md:grid-cols-2">
           <Reveal>
-            <PhotoSlot
-              caption="Megan at the microscope reviewing a scalp analysis"
+            <Photo
+              src="/images/trichoscope.jpg"
+              alt="The digital trichoscope Megan uses for scalp analysis"
               ratio="aspect-[5/4]"
-              tone="gold"
             />
           </Reveal>
           <Reveal>
