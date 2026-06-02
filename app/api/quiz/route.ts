@@ -51,7 +51,7 @@ export async function POST(req: Request) {
       <p>Here is a copy of what you shared with Megan at MLK Hair. The next step is a scalp analysis, where she finds the actual cause behind what you described.</p>
       <table style="border-collapse:collapse;width:100%">${rows}</table>
       <p style="margin-top:20px">
-        <a href="${site.bookingUrl}" style="background:#c26b4a;color:#fff;padding:12px 20px;border-radius:5px;text-decoration:none;font-weight:600">Book your scalp analysis</a>
+        <a href="${site.bookingUrl}" style="background:#b89a54;color:#1f1d1a;padding:12px 20px;border-radius:5px;text-decoration:none;font-weight:600">Book your scalp analysis</a>
       </p>
     </div>`;
 
