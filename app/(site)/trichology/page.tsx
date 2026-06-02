@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Section, Eyebrow, AnswerSummary, BookButton, QuizButton } from "@/components/ui";
+import { Section, Eyebrow, BookButton, QuizButton } from "@/components/ui";
 import Reveal from "@/components/Reveal";
-import FAQ from "@/components/FAQ";
+import FaqMosaic from "@/components/FaqMosaic";
+import Photo from "@/components/Photo";
 import { faqSchema, jsonLd, type Faq } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -58,34 +59,63 @@ export default function Trichology() {
         dangerouslySetInnerHTML={jsonLd(faqSchema(faqs))}
       />
 
+      {/* Hero: bordered "why I chose trichology" headline + real photo */}
       <Section>
-        <div className="max-w-3xl">
-          <Eyebrow>Trichology, explained</Eyebrow>
-          <h1 className="font-display text-4xl leading-[1.05] text-evergreen md:text-5xl">
-            What is a trichologist?
-          </h1>
-          <div className="mt-7">
-            <AnswerSummary>
+        <div className="grid items-center gap-10 md:grid-cols-[1.05fr_0.95fr]">
+          <Reveal>
+            <Eyebrow rule>Trichology, explained</Eyebrow>
+            <div className="rounded-md border border-gold/60 p-7 md:p-8">
+              <h1 className="font-display text-4xl leading-[1.05] text-evergreen md:text-5xl">
+                Why I chose trichology
+              </h1>
+              <p className="mt-4 max-w-prose text-lg leading-relaxed text-ink/80">
+                Behind the chair for seventeen years, Megan kept meeting the same
+                quiet heartbreak: clients losing hair, having tried everything,
+                with no real answer. Trichology is how she finally got to give
+                them one. It is the study of the hair and scalp, and it is the
+                science of finding the why.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={120}>
+            <Photo
+              src="/images/scalp-analysis.jpg"
+              alt="Megan performing a scalp analysis with a digital trichoscope"
+              ratio="aspect-[5/4]"
+              priority
+            />
+          </Reveal>
+        </div>
+      </Section>
+
+      <Section variant="gold">
+        <Reveal>
+          <div className="max-w-3xl">
+            <Eyebrow>What is a trichologist?</Eyebrow>
+            <h2 className="font-display text-3xl text-evergreen md:text-4xl">
+              A specialist in the science of hair and scalp
+            </h2>
+            <p className="mt-5 max-w-prose text-lg leading-relaxed text-ink/80">
               A trichologist studies the hair and scalp and finds the cause of
               hair loss instead of handing you another product. Megan Luthy is an
               AMCA-certified clinical trichologist in Idaho Falls and Rexburg who
               assesses your scalp under magnification, identifies the root cause,
               and treats it, collaborating with your doctor when a medical issue
               is involved.
-            </AnswerSummary>
+            </p>
           </div>
-        </div>
+        </Reveal>
       </Section>
 
-      <Section alt>
+      <Section>
         <Reveal>
-          <Eyebrow>The questions people ask</Eyebrow>
-          <h2 className="font-display text-3xl text-evergreen md:text-4xl">
+          <Eyebrow rule>The questions people ask</Eyebrow>
+          <h2 className="max-w-2xl font-display text-3xl text-evergreen md:text-4xl">
             Everything you wanted to know about trichology
           </h2>
         </Reveal>
-        <div className="mt-10 max-w-3xl">
-          <FAQ items={faqs} />
+        <div className="mt-12">
+          <FaqMosaic items={faqs} />
         </div>
       </Section>
 
