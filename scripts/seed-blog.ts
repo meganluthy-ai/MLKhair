@@ -175,7 +175,7 @@ const posts = [
 
 // All documents to seed, shared by the token writer (this file) and the
 // NDJSON exporter (scripts/export-ndjson.ts) used for `sanity dataset import`.
-export const seedDocuments = [
+export const seedDocuments: Array<Record<string, unknown> & { _id: string; _type: string }> = [
   {
     _id: AUTHOR_ID,
     _type: "author",

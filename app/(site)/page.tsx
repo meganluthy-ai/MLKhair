@@ -158,7 +158,7 @@ export default function Home() {
           {pillars.map((p, i) => (
             <Reveal key={p.title}>
               <div
-                className="flex h-full flex-col rounded-md border border-line bg-cream p-7"
+                className="lift flex h-full flex-col rounded-md border border-line bg-cream p-7"
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
                 <p.icon className="text-gold-dark" size={28} strokeWidth={1.5} />
@@ -218,34 +218,41 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Scientific approach block */}
-      <Section alt>
-        <Reveal>
-          <div className="max-w-3xl">
-            <Eyebrow>The approach</Eyebrow>
-            <h2 className="font-display text-3xl text-evergreen md:text-4xl">
-              We find the why, then we treat it from more than one angle
+      {/* Scientific approach block: olive image band */}
+      <Section variant="olive">
+        <div className="grid items-center gap-10 md:grid-cols-2">
+          <Reveal>
+            <Photo
+              src="/images/scalp-analysis.jpg"
+              alt="Megan performing a scalp analysis"
+              ratio="aspect-[5/4]"
+            />
+          </Reveal>
+          <Reveal delay={120}>
+            <Eyebrow rule>The approach</Eyebrow>
+            <h2 className="font-display text-3xl md:text-4xl">
+              We find the why, then treat it from more than one angle
             </h2>
-            <div className="prose-body mt-5 text-ink/80">
+            <div className="prose-body mt-5">
               <p>
                 Most hair advice online is marketing noise. One miracle serum,
                 one viral oil, one drug. Real hair loss rarely has one cause, so
                 it rarely has a single fix. Megan calls it the multi-therapeutic
-                approach. She identifies the root cause through scalp analysis
-                and your health history, then combines evidence-based therapies
-                that fit your situation: professional scalp treatments, low-light
-                therapy, growth serums, nutrition, and medical collaboration when
-                it is called for.
+                approach: identify the root cause through scalp analysis and your
+                health history, then combine the evidence-based therapies that fit
+                you, from professional scalp treatments and low-light therapy to
+                growth serums, nutrition, and medical collaboration when it is
+                called for.
               </p>
             </div>
             <Link
               href="/approach"
-              className="mt-6 inline-flex items-center gap-1.5 font-semibold text-gold-dark hover:text-gold-dark"
+              className="link-underline mt-6 inline-flex items-center gap-1.5 font-semibold text-gold"
             >
               See the full method <ArrowRight size={16} />
             </Link>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </Section>
 
       {/* FAQ + schema */}

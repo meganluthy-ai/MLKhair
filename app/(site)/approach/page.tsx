@@ -87,15 +87,23 @@ export default function Approach() {
       </Section>
 
       <Section alt className="!pt-0 md:!pt-0">
-        <div className="grid gap-px overflow-hidden rounded-md border border-line bg-line md:grid-cols-2">
-          {method.map((m) => (
-            <Reveal key={m.n} className="bg-soft-white">
-              <div className="h-full p-8">
-                <span className="font-display text-3xl text-gold-dark">{m.n}</span>
-                <h2 className="mt-3 font-display text-2xl text-evergreen">
-                  {m.title}
-                </h2>
-                <p className="mt-3 text-ink/80">{m.body}</p>
+        <div className="grid gap-5 md:grid-cols-2">
+          {method.map((m, i) => (
+            <Reveal key={m.n} delay={(i % 2) * 90}>
+              <div
+                className={`lift flex h-full gap-5 rounded-md border p-8 ${
+                  i % 2 === 0 ? "border-line bg-cream" : "border-gold/40 bg-gold-tint"
+                }`}
+              >
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-evergreen font-display text-lg text-gold">
+                  {m.n}
+                </span>
+                <div>
+                  <h2 className="font-display text-2xl text-evergreen">
+                    {m.title}
+                  </h2>
+                  <p className="mt-2 text-ink/80">{m.body}</p>
+                </div>
               </div>
             </Reveal>
           ))}

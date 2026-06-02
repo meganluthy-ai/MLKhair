@@ -3,6 +3,7 @@ import { Section, Eyebrow, AnswerSummary, BookButton, QuizButton } from "@/compo
 import Reveal from "@/components/Reveal";
 import FAQ from "@/components/FAQ";
 import Photo from "@/components/Photo";
+import Timeline from "@/components/Timeline";
 import { faqSchema, jsonLd, type Faq } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -153,17 +154,26 @@ export default function HairLoss() {
           </h2>
         </Reveal>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {conditions.map((c) => (
-            <Reveal key={c.name}>
-              <div className="h-full rounded-md border border-line bg-soft-white p-7">
-                <p className="eyebrow">{c.plain}</p>
-                <h3 className="mt-2 font-display text-2xl text-evergreen">
-                  {c.name}
-                </h3>
-                <p className="mt-3 text-ink/80">{c.body}</p>
-              </div>
-            </Reveal>
-          ))}
+          {conditions.map((c, i) => {
+            const dark = i % 2 === 0;
+            return (
+              <Reveal key={c.name} delay={(i % 2) * 90}>
+                <div
+                  className={`lift h-full rounded-md border p-8 ${
+                    dark
+                      ? "on-dark border-evergreen bg-evergreen"
+                      : "border-gold/40 bg-gold-tint"
+                  }`}
+                >
+                  <p className={`eyebrow ${dark ? "text-gold" : "text-gold-dark"}`}>
+                    {c.plain}
+                  </p>
+                  <h3 className="mt-2 font-display text-2xl">{c.name}</h3>
+                  <p className={`mt-3 ${dark ? "" : "text-ink/80"}`}>{c.body}</p>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
       </Section>
 
@@ -176,9 +186,9 @@ export default function HairLoss() {
           </h2>
         </Reveal>
         <div className="mt-12 grid gap-8 md:grid-cols-3">
-          {steps.map((s) => (
-            <Reveal key={s.n}>
-              <div className="flex h-full flex-col rounded-md border border-line bg-cream p-7">
+          {steps.map((s, i) => (
+            <Reveal key={s.n} delay={i * 90}>
+              <div className="lift flex h-full flex-col rounded-md border border-line bg-cream p-7">
                 <span className="font-display text-4xl text-gold-dark">{s.n}</span>
                 <h3 className="mt-3 font-display text-xl text-evergreen">
                   {s.title}
@@ -198,7 +208,25 @@ export default function HairLoss() {
         </Reveal>
       </Section>
 
+      {/* Regrowth timeline */}
       <Section>
+        <Reveal>
+          <Eyebrow rule>What to expect</Eyebrow>
+          <h2 className="max-w-2xl font-display text-3xl text-evergreen md:text-4xl">
+            The real timeline of regrowth
+          </h2>
+          <p className="mt-4 max-w-prose text-ink/80">
+            Hair is slow, so we measure progress in months, not days. Here is the
+            honest arc, including the part where it feels like nothing is
+            happening.
+          </p>
+        </Reveal>
+        <div className="mt-12">
+          <Timeline />
+        </div>
+      </Section>
+
+      <Section variant="gold">
         <Reveal>
           <Eyebrow>Questions</Eyebrow>
           <h2 className="font-display text-3xl text-evergreen md:text-4xl">
