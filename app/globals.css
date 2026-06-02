@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Palette — warm, natural, clinical-calm (see build brief §4.3) */
+  --evergreen: #2e4a3d;
+  --evergreen-dark: #233a30;
+  --cream: #f6f2ea;
+  --soft-white: #fcfbf8;
+  --clay: #c26b4a;
+  --clay-dark: #a8542f;
+  --ink: #1f1d1a;
+  --taupe: #8a8175;
+  --line: #e4ddcf;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-inter-tight), system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headlines lean on Fraunces, the editorial serif */
+h1, h2, h3, h4 {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--evergreen);
+}
+
+/* Eyebrow / label treatment: all-caps, wide tracking */
+.eyebrow {
+  font-family: var(--font-inter-tight), system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--clay);
+}
+
+/* Body prose helper for long-form pages */
+.prose-body p {
+  margin-bottom: 1.1rem;
+  max-width: 68ch;
+}
+.prose-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Buttons: rectangular, small radius, calm hover */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1;
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  cursor: pointer;
+}
+.btn-primary {
+  background-color: var(--evergreen);
+  color: var(--cream);
+}
+.btn-primary:hover {
+  background-color: var(--evergreen-dark);
+}
+.btn-accent {
+  background-color: var(--clay);
+  color: #fff;
+}
+.btn-accent:hover {
+  background-color: var(--clay-dark);
+}
+.btn-outline {
+  background-color: transparent;
+  color: var(--evergreen);
+  border: 1px solid var(--evergreen);
+}
+.btn-outline:hover {
+  background-color: var(--evergreen);
+  color: var(--cream);
+}
+
+/* Single, consistent motion principle: gentle fade-and-rise on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Subtle paper grain reserved for the hero only */
+.hero-grain {
+  position: relative;
+}
+.hero-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
