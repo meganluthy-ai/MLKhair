@@ -95,7 +95,7 @@ export default function Approach() {
                   i % 2 === 0 ? "border-line bg-cream" : "border-gold/40 bg-gold-tint"
                 }`}
               >
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-evergreen font-display text-lg text-gold">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-evergreen font-display text-lg text-cream">
                   {m.n}
                 </span>
                 <div>

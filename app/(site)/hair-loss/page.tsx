@@ -155,7 +155,8 @@ export default function HairLoss() {
         </Reveal>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {conditions.map((c, i) => {
-            const dark = i % 2 === 0;
+            // checkerboard across the 2-col grid: green, tan / tan, green
+            const dark = (Math.floor(i / 2) + (i % 2)) % 2 === 0;
             return (
               <Reveal key={c.name} delay={(i % 2) * 90}>
                 <div
