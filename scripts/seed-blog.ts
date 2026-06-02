@@ -81,6 +81,7 @@ const posts = [
     slug: "why-your-hair-is-thinning",
     category: "category-hair-loss",
     readTime: 6,
+    image: "https://static.wixstatic.com/media/260431_79ed4cd12fc047beb996de88ed4a154a~mv2.png",
     publishedAt: "2026-05-29T15:00:00Z",
     excerpt:
       "If you have switched shampoos five times and nothing changed, that is because shampoo was rarely the problem. Here is what usually is.",
@@ -109,6 +110,7 @@ const posts = [
     slug: "what-happens-in-a-scalp-analysis",
     category: "category-scalp-health",
     readTime: 4,
+    image: "https://static.wixstatic.com/media/260431_c61a1e3e6e644c34946652b0f99ea737~mv2.png",
     publishedAt: "2026-05-30T15:00:00Z",
     excerpt:
       "It is not scary, and it is not a sales pitch. Here is exactly what a comprehensive scalp analysis looks like, step by step.",
@@ -151,6 +153,7 @@ const posts = [
     slug: "real-timeline-of-hair-regrowth",
     category: "category-hair-loss",
     readTime: 5,
+    image: "https://static.wixstatic.com/media/260431_6b53052423f746f8a09a1e9551389b54~mv2.png",
     publishedAt: "2026-06-01T15:00:00Z",
     excerpt:
       "Most people quit right before it starts working. Here is what regrowth actually looks like month by month, so you do not give up at the hardest part.",
@@ -198,6 +201,11 @@ export const seedDocuments = [
     author: { _type: "reference", _ref: AUTHOR_ID },
     categories: [{ _type: "reference", _ref: p.category, _key: "cat0" }],
     body: blocks(p.body),
+    // _sanityAsset tells `sanity dataset import` to fetch the URL and host it
+    // as a Sanity image asset, so we are not hotlinking Wix.
+    ...((p as { image?: string }).image
+      ? { mainImage: { _type: "image", _sanityAsset: `image@${(p as { image?: string }).image}` } }
+      : {}),
   })),
 ];
 
