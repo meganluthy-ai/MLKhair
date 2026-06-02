@@ -84,11 +84,13 @@ export function BookButton({
 
 export function QuizButton({
   label = "Take the Hair & Scalp Quiz",
+  onDark = false,
 }: {
   label?: string;
+  onDark?: boolean;
 }) {
   return (
-    <Link href="/quiz" className="btn btn-outline">
+    <Link href="/quiz" className={`btn ${onDark ? "btn-outline-light" : "btn-outline"}`}>
       {label}
     </Link>
   );

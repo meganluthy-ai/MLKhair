@@ -11,7 +11,7 @@ const toneClasses: Record<Tone, { card: string; eyebrow: string; q: string; a: s
     card: "bg-evergreen border-evergreen",
     eyebrow: "text-gold",
     q: "text-cream",
-    a: "text-cream/85",
+    a: "text-cream",
   },
   gold: {
     card: "bg-gold border-gold",

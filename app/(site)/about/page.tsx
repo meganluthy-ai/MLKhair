@@ -137,7 +137,7 @@ export default function About() {
           <h2 className="font-display text-3xl text-cream md:text-4xl">
             Let&rsquo;s find out what is really going on
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-cream/80">
+          <p className="mx-auto mt-4 max-w-xl text-cream">
             A scalp analysis is a private, no-pressure way to get a real answer
             about your hair.
           </p>

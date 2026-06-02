@@ -243,7 +243,7 @@ export default function HairLoss() {
           <h2 className="font-display text-3xl text-cream md:text-4xl">
             Find your cause with a scalp analysis
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-cream/80">
+          <p className="mx-auto mt-4 max-w-xl text-cream">
             One private visit to understand what is happening, and a clear,
             science-based plan for what to do about it.
           </p>

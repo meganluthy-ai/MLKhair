@@ -60,7 +60,7 @@ export default function Stats() {
           <div className="font-display text-3xl text-gold md:text-4xl">
             {s.countTo ? <Counter to={s.countTo} suffix={s.suffix} /> : s.value}
           </div>
-          <p className="mt-2 text-sm leading-snug text-cream/80">{s.label}</p>
+          <p className="mt-2 text-sm leading-snug text-cream">{s.label}</p>
         </div>
       ))}
     </div>

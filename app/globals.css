@@ -97,6 +97,16 @@ h1, h2, h3, h4 {
   background-color: var(--evergreen);
   color: var(--cream);
 }
+/* Outline button for use on dark (olive) backgrounds */
+.btn-outline-light {
+  background-color: transparent;
+  color: var(--cream);
+  border: 1px solid rgba(246, 242, 234, 0.55);
+}
+.btn-outline-light:hover {
+  background-color: var(--cream);
+  color: var(--evergreen);
+}
 
 /* Single, consistent motion principle: gentle fade-and-rise on scroll */
 .reveal {

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Microscope, Scissors, Sparkles } from "lucide-react";
-import { Section, Eyebrow, AnswerSummary, BookButton, QuizButton, TrustRow, Divider } from "@/components/ui";
+import { Section, Eyebrow, AnswerSummary, BookButton, QuizButton, TrustRow } from "@/components/ui";
 import Reveal from "@/components/Reveal";
 import FAQ from "@/components/FAQ";
 import Photo from "@/components/Photo";
@@ -274,13 +274,13 @@ export default function Home() {
           <h2 className="font-display text-3xl text-cream md:text-4xl">
             Stop guessing. Start with a scalp analysis.
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-cream/80">
+          <p className="mx-auto mt-4 max-w-xl text-cream">
             It is the front door to everything we do. One visit to find the
             cause, in person or by video, and a clear plan for what comes next.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <BookButton variant="accent" />
-            <QuizButton label="Not ready? Take the quiz" />
+            <QuizButton label="Not ready? Take the quiz" onDark />
           </div>
         </div>
       </section>
