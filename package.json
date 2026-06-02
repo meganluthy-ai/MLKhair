@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "seed:blog": "tsx scripts/seed-blog.ts"
+    "seed:blog": "tsx --env-file=.env.local scripts/seed-blog.ts",
+    "seed:ndjson": "tsx scripts/export-ndjson.ts"
   },
   "dependencies": {
     "@portabletext/react": "^6.0.3",

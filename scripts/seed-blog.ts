@@ -8,7 +8,6 @@
  *
  * Re-running is safe: documents use fixed _id values and createOrReplace.
  */
-import "dotenv/config";
 import { writeClient } from "../sanity/lib/client";
 
 type Line = { h2: string } | { p: string } | { ul: string[] };
@@ -60,7 +59,7 @@ const posts = [
     slug: "trichologist-vs-dermatologist",
     category: "category-hair-loss",
     readTime: 5,
-    publishedAt: "2026-06-03T15:00:00Z",
+    publishedAt: "2026-05-28T15:00:00Z",
     excerpt:
       "They are not the same job, and they are not in competition. Here is how to tell which one your hair actually needs, and why the answer is often both.",
     body: [
@@ -82,7 +81,7 @@ const posts = [
     slug: "why-your-hair-is-thinning",
     category: "category-hair-loss",
     readTime: 6,
-    publishedAt: "2026-06-04T15:00:00Z",
+    publishedAt: "2026-05-29T15:00:00Z",
     excerpt:
       "If you have switched shampoos five times and nothing changed, that is because shampoo was rarely the problem. Here is what usually is.",
     body: [
@@ -110,7 +109,7 @@ const posts = [
     slug: "what-happens-in-a-scalp-analysis",
     category: "category-scalp-health",
     readTime: 4,
-    publishedAt: "2026-06-05T15:00:00Z",
+    publishedAt: "2026-05-30T15:00:00Z",
     excerpt:
       "It is not scary, and it is not a sales pitch. Here is exactly what a comprehensive scalp analysis looks like, step by step.",
     body: [
@@ -132,7 +131,7 @@ const posts = [
     slug: "does-rosemary-oil-regrow-hair",
     category: "category-products",
     readTime: 5,
-    publishedAt: "2026-06-06T15:00:00Z",
+    publishedAt: "2026-05-31T15:00:00Z",
     excerpt:
       "Rosemary oil went viral for a reason, but the internet skipped the fine print. Here is the honest, science-based version.",
     body: [
@@ -152,7 +151,7 @@ const posts = [
     slug: "real-timeline-of-hair-regrowth",
     category: "category-hair-loss",
     readTime: 5,
-    publishedAt: "2026-06-07T15:00:00Z",
+    publishedAt: "2026-06-01T15:00:00Z",
     excerpt:
       "Most people quit right before it starts working. Here is what regrowth actually looks like month by month, so you do not give up at the hardest part.",
     body: [
@@ -171,6 +170,37 @@ const posts = [
   },
 ];
 
+// All documents to seed, shared by the token writer (this file) and the
+// NDJSON exporter (scripts/export-ndjson.ts) used for `sanity dataset import`.
+export const seedDocuments = [
+  {
+    _id: AUTHOR_ID,
+    _type: "author",
+    name: "Megan Luthy",
+    slug: { _type: "slug", current: "megan-luthy" },
+    bio: "Megan Luthy is an AMCA-certified clinical trichologist and licensed cosmetologist with 17+ years of experience, serving Idaho Falls and Rexburg, Idaho.",
+  },
+  ...categories.map((c) => ({
+    _id: c._id,
+    _type: "category",
+    title: c.title,
+    slug: { _type: "slug", current: c.slug },
+    description: c.description,
+  })),
+  ...posts.map((p) => ({
+    _id: p._id,
+    _type: "post",
+    title: p.title,
+    slug: { _type: "slug", current: p.slug },
+    publishedAt: p.publishedAt,
+    excerpt: p.excerpt,
+    readTime: p.readTime,
+    author: { _type: "reference", _ref: AUTHOR_ID },
+    categories: [{ _type: "reference", _ref: p.category, _key: "cat0" }],
+    body: blocks(p.body),
+  })),
+];
+
 async function run() {
   if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || !process.env.SANITY_API_TOKEN) {
     console.error(
@@ -179,47 +209,18 @@ async function run() {
     process.exit(1);
   }
 
-  console.log("Seeding author...");
-  await writeClient.createOrReplace({
-    _id: AUTHOR_ID,
-    _type: "author",
-    name: "Megan Luthy",
-    slug: { _type: "slug", current: "megan-luthy" },
-    bio: "Megan Luthy is an AMCA-certified clinical trichologist and licensed cosmetologist with 17+ years of experience, serving Idaho Falls and Rexburg, Idaho.",
-  });
-
-  console.log("Seeding categories...");
-  for (const c of categories) {
-    await writeClient.createOrReplace({
-      _id: c._id,
-      _type: "category",
-      title: c.title,
-      slug: { _type: "slug", current: c.slug },
-      description: c.description,
-    });
-  }
-
-  console.log("Seeding posts...");
-  for (const p of posts) {
-    await writeClient.createOrReplace({
-      _id: p._id,
-      _type: "post",
-      title: p.title,
-      slug: { _type: "slug", current: p.slug },
-      publishedAt: p.publishedAt,
-      excerpt: p.excerpt,
-      readTime: p.readTime,
-      author: { _type: "reference", _ref: AUTHOR_ID },
-      categories: [{ _type: "reference", _ref: p.category, _key: "cat0" }],
-      body: blocks(p.body),
-    });
-    console.log("  ✓", p.title);
+  for (const doc of seedDocuments) {
+    await writeClient.createOrReplace(doc);
+    console.log("  ✓", doc._type, "-", (doc as { title?: string; name?: string }).title || (doc as { name?: string }).name);
   }
 
   console.log("Done. Add a main image to each post in the Studio when photos are ready.");
 }
 
-run().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+// Only write when run directly (not when imported by the NDJSON exporter).
+if (process.argv[1] && /seed-blog\.ts$/.test(process.argv[1])) {
+  run().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}
