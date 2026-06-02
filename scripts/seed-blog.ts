@@ -59,7 +59,7 @@ const posts = [
     slug: "trichologist-vs-dermatologist",
     category: "category-hair-loss",
     readTime: 5,
-    publishedAt: "2026-05-28T15:00:00Z",
+    publishedAt: "2025-10-14T16:00:00Z",
     excerpt:
       "They are not the same job, and they are not in competition. Here is how to tell which one your hair actually needs, and why the answer is often both.",
     body: [
@@ -82,7 +82,7 @@ const posts = [
     category: "category-hair-loss",
     readTime: 6,
     image: "https://static.wixstatic.com/media/260431_79ed4cd12fc047beb996de88ed4a154a~mv2.png",
-    publishedAt: "2026-05-29T15:00:00Z",
+    publishedAt: "2025-10-14T17:00:00Z",
     excerpt:
       "If you have switched shampoos five times and nothing changed, that is because shampoo was rarely the problem. Here is what usually is.",
     body: [
@@ -111,7 +111,7 @@ const posts = [
     category: "category-scalp-health",
     readTime: 4,
     image: "https://static.wixstatic.com/media/260431_c61a1e3e6e644c34946652b0f99ea737~mv2.png",
-    publishedAt: "2026-05-30T15:00:00Z",
+    publishedAt: "2025-10-14T18:00:00Z",
     excerpt:
       "It is not scary, and it is not a sales pitch. Here is exactly what a comprehensive scalp analysis looks like, step by step.",
     body: [
@@ -133,7 +133,7 @@ const posts = [
     slug: "does-rosemary-oil-regrow-hair",
     category: "category-products",
     readTime: 5,
-    publishedAt: "2026-05-31T15:00:00Z",
+    publishedAt: "2025-10-14T19:00:00Z",
     excerpt:
       "Rosemary oil went viral for a reason, but the internet skipped the fine print. Here is the honest, science-based version.",
     body: [
@@ -154,7 +154,7 @@ const posts = [
     category: "category-hair-loss",
     readTime: 5,
     image: "https://static.wixstatic.com/media/260431_6b53052423f746f8a09a1e9551389b54~mv2.png",
-    publishedAt: "2026-06-01T15:00:00Z",
+    publishedAt: "2025-10-14T20:00:00Z",
     excerpt:
       "Most people quit right before it starts working. Here is what regrowth actually looks like month by month, so you do not give up at the hardest part.",
     body: [
