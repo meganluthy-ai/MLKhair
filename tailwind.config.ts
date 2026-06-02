@@ -15,6 +15,7 @@ const config: Config = {
         "soft-white": "var(--soft-white)",
         gold: "var(--gold)",
         "gold-dark": "var(--gold-dark)",
+        "gold-tint": "var(--gold-tint)",
         ink: "var(--ink)",
         taupe: "var(--taupe)",
         line: "var(--line)",

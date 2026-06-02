@@ -12,6 +12,7 @@
   /* Muted mustard gold, sampled from the live site (logo underline runs brighter) */
   --gold: #b89a54;
   --gold-dark: #8a7233;
+  --gold-tint: #efe6d0; /* warm gold-tinted band background */
   --ink: #1f1d1a;
   --taupe: #8a8175;
   --line: #e4ddcf;
@@ -110,6 +111,83 @@ h1, h2, h3, h4 {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Dark (olive) sections: flip text + accent colors for contrast on evergreen */
+.on-dark h1,
+.on-dark h2,
+.on-dark h3,
+.on-dark h4 {
+  color: var(--cream);
+}
+.on-dark .eyebrow {
+  color: var(--gold);
+}
+.on-dark p {
+  color: rgba(246, 242, 234, 0.85);
+}
+
+/* Calm hover-lift for cards/tiles (one subtle principle, no scale) */
+.lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px -18px rgba(31, 29, 26, 0.4);
+}
+
+/* Animated gold underline that draws in on hover */
+.link-underline {
+  background-image: linear-gradient(var(--gold-dark), var(--gold-dark));
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1.5px;
+  transition: background-size 0.3s ease;
+  padding-bottom: 1px;
+}
+.link-underline:hover {
+  background-size: 100% 1.5px;
+}
+
+/* Gold hairline divider with a centered diamond */
+.rule-gold {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--gold);
+}
+.rule-gold::before,
+.rule-gold::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+/* Gentle float for the hero image */
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.float-soft {
+  animation: float-soft 7s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .float-soft { animation: none; }
+}
+
+/* Eyebrow with a leading gold rule */
+.eyebrow-rule {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.eyebrow-rule::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: var(--gold);
 }
 
 /* Subtle paper grain reserved for the hero only */

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Microscope, Scissors, Sparkles } from "lucide-react";
-import { Section, Eyebrow, AnswerSummary, BookButton, QuizButton } from "@/components/ui";
+import { Section, Eyebrow, AnswerSummary, BookButton, QuizButton, TrustRow, Divider } from "@/components/ui";
 import Reveal from "@/components/Reveal";
 import FAQ from "@/components/FAQ";
 import Photo from "@/components/Photo";
+import Stats from "@/components/Stats";
 import { site } from "@/lib/site";
 import { faqSchema, jsonLd, type Faq } from "@/lib/schema";
 
@@ -73,39 +74,74 @@ export default function Home() {
         dangerouslySetInnerHTML={jsonLd(faqSchema(faqs))}
       />
 
-      {/* Asymmetric editorial hero: headline left, real photo right */}
-      <section className="hero-grain bg-cream">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-[1.1fr_0.9fr] md:py-24">
+      {/* Layered editorial hero: headline left, photo on an olive panel right */}
+      <section className="hero-grain relative overflow-hidden bg-cream">
+        {/* soft gold wash in the corner for depth */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-gold/15 blur-3xl"
+        />
+        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-[1.05fr_0.95fr] md:py-24 lg:py-28">
           <div>
-            <Eyebrow>Healthy Hair, Simplified</Eyebrow>
-            <h1 className="font-display text-4xl leading-[1.05] text-evergreen md:text-6xl">
-              Science-based hair loss and scalp care in Idaho Falls
+            <Eyebrow rule>Healthy Hair, Simplified</Eyebrow>
+            <h1 className="font-display text-[2.6rem] leading-[1.02] text-evergreen sm:text-5xl md:text-6xl lg:text-7xl">
+              The science behind{" "}
+              <span className="italic text-gold-dark">why</span> your hair
+              is changing
             </h1>
             <div className="mt-7">
               <AnswerSummary>
-                Megan Luthy is an AMCA-certified clinical trichologist serving
-                Idaho Falls, Rexburg, and clients anywhere by video. She finds
-                the real cause of thinning hair with a comprehensive scalp
-                analysis, then builds a science-based plan to treat it. Not
-                rosemary oil. Not one more product. The actual reason.
+                Megan Luthy is an AMCA-certified clinical trichologist in Idaho
+                Falls and Rexburg. She finds the real cause of thinning hair with
+                a comprehensive scalp analysis, then builds a science-based plan
+                to treat it. Not rosemary oil. Not one more product. The actual
+                reason.
               </AnswerSummary>
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
               <BookButton />
               <QuizButton />
             </div>
-            <p className="mt-5 text-sm text-taupe">
-              Private and confidential. In person or by Zoom and FaceTime.
-            </p>
+            <TrustRow
+              className="mt-7"
+              items={[
+                "AMCA-certified trichologist",
+                "17+ years behind the chair",
+                "In person or by video",
+              ]}
+            />
           </div>
 
           <Reveal>
-            <Photo
-              src="/images/megan-suite.jpg"
-              alt="Megan Luthy in her private hair studio"
-              ratio="aspect-[4/5]"
-              priority
-            />
+            <div className="relative mx-auto max-w-sm md:max-w-none">
+              {/* olive panel offset behind the photo */}
+              <div
+                aria-hidden
+                className="absolute -bottom-4 -right-4 hidden h-full w-full rounded-md bg-evergreen md:block"
+              />
+              {/* gold corner bracket */}
+              <div
+                aria-hidden
+                className="absolute -left-3 -top-3 hidden h-16 w-16 border-l-2 border-t-2 border-gold md:block"
+              />
+              <div className="relative float-soft">
+                <Photo
+                  src="/images/megan-suite.jpg"
+                  alt="Megan Luthy in her private hair studio"
+                  ratio="aspect-[4/5]"
+                  priority
+                />
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Animated credentials strip */}
+      <section className="bg-cream pb-4">
+        <div className="mx-auto max-w-6xl px-5">
+          <Reveal>
+            <Stats />
           </Reveal>
         </div>
       </section>
