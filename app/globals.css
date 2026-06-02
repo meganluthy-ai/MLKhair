@@ -4,14 +4,14 @@
 
 :root {
   /* Palette — warm, natural, clinical-calm (see build brief §4.3) */
-  /* Deep teal-green, sampled from the MLK Hair brand icon fills (#1A323D) */
-  --evergreen: #1a323d;
-  --evergreen-dark: #122530;
+  /* Muted olive green, sampled from the live mlkhair.com section blocks */
+  --evergreen: #5f6a57;
+  --evergreen-dark: #4a5343;
   --cream: #f6f2ea;
   --soft-white: #fcfbf8;
-  /* Brand gold, sampled from the MLK Hair logo underline */
-  --gold: #c8a45a;
-  --gold-dark: #9a7a2e;
+  /* Muted mustard gold, sampled from the live site (logo underline runs brighter) */
+  --gold: #b89a54;
+  --gold-dark: #8a7233;
   --ink: #1f1d1a;
   --taupe: #8a8175;
   --line: #e4ddcf;
