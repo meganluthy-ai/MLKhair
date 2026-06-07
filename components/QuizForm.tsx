@@ -143,13 +143,15 @@ export default function QuizForm() {
           Thank you{first ? `, ${first}` : ""}
         </h2>
         <p className="mx-auto mt-3 max-w-prose text-ink/80">
-          Your profile is on its way to Megan. She will review it before your
-          visit. The next step is your comprehensive scalp analysis, where she
-          finds the actual cause behind what you described.
+          Your profile is on its way to Megan. She&rsquo;ll review it before your
+          visit so your consultation starts with context, not guesswork.
+        </p>
+        <p className="mx-auto mt-4 max-w-prose font-medium text-evergreen">
+          Your next step: book your comprehensive scalp consultation.
         </p>
         <div className="mt-7 flex justify-center">
           <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" className="btn btn-accent">
-            Book Your Scalp Analysis
+            Book your scalp consultation
           </a>
         </div>
       </div>
@@ -222,6 +224,56 @@ export default function QuizForm() {
   );
 }
 
+// Month / Day / Year dropdowns instead of the native picker, so older clients
+// are not stuck scrolling a calendar back decades. Stores "YYYY-MM-DD".
+function DateSelect({
+  value,
+  onChange,
+  showError,
+}: {
+  value: string;
+  onChange: (v: string) => void;
+  showError: boolean;
+}) {
+  const parts = value.split("-");
+  const [y, setY] = useState(parts[0] || "");
+  const [m, setM] = useState(parts[1] || "");
+  const [d, setD] = useState(parts[2] || "");
+
+  const nowY = new Date().getFullYear();
+  const years = Array.from({ length: nowY - 1919 }, (_, i) => String(nowY - i));
+  const months = [
+    ["01", "January"], ["02", "February"], ["03", "March"], ["04", "April"],
+    ["05", "May"], ["06", "June"], ["07", "July"], ["08", "August"],
+    ["09", "September"], ["10", "October"], ["11", "November"], ["12", "December"],
+  ];
+  const days = Array.from({ length: 31 }, (_, i) => String(i + 1).padStart(2, "0"));
+
+  function push(ny: string, nm: string, nd: string) {
+    onChange(ny && nm && nd ? `${ny}-${nm}-${nd}` : "");
+  }
+  const sel = `rounded-md border bg-soft-white px-3 py-3 text-ink outline-none focus:border-evergreen focus:ring-1 focus:ring-evergreen ${
+    showError ? "border-clay-dark" : "border-line"
+  }`;
+
+  return (
+    <div className="grid grid-cols-3 gap-2">
+      <select className={sel} value={m} onChange={(e) => { setM(e.target.value); push(y, e.target.value, d); }}>
+        <option value="">Month</option>
+        {months.map(([val, label]) => <option key={val} value={val}>{label}</option>)}
+      </select>
+      <select className={sel} value={d} onChange={(e) => { setD(e.target.value); push(y, m, e.target.value); }}>
+        <option value="">Day</option>
+        {days.map((dd) => <option key={dd} value={dd}>{Number(dd)}</option>)}
+      </select>
+      <select className={sel} value={y} onChange={(e) => { setY(e.target.value); push(e.target.value, m, d); }}>
+        <option value="">Year</option>
+        {years.map((yy) => <option key={yy} value={yy}>{yy}</option>)}
+      </select>
+    </div>
+  );
+}
+
 function FieldRow({
   field: f,
   answers,
@@ -260,7 +312,7 @@ function FieldRow({
           <textarea rows={3} className={`${inputClass} ${showError ? "border-clay-dark" : ""}`} placeholder={f.placeholder} value={(v as string) || ""} onChange={(e) => onText(e.target.value)} />
         )}
         {f.type === "date" && (
-          <input type="date" className={`${inputClass} ${showError ? "border-clay-dark" : ""}`} value={(v as string) || ""} onChange={(e) => onText(e.target.value)} />
+          <DateSelect value={(v as string) || ""} onChange={onText} showError={showError} />
         )}
 
         {f.type === "radio" && (

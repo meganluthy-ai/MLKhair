@@ -81,7 +81,7 @@ export default function Home() {
           aria-hidden
           className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-gold/15 blur-3xl"
         />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-[1.05fr_0.95fr] md:py-24 lg:py-28">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 pb-16 pt-12 md:grid-cols-[1.05fr_0.95fr] md:pb-24 md:pt-20 lg:pb-28 lg:pt-28">
           <div>
             <Eyebrow rule>Healthy Hair, Simplified</Eyebrow>
             <h1 className="font-display text-[2.6rem] leading-[1.02] text-evergreen sm:text-5xl md:text-6xl lg:text-7xl">
@@ -91,11 +91,11 @@ export default function Home() {
             </h1>
             <div className="mt-7">
               <AnswerSummary>
-                Megan Luthy is an AMCA-certified clinical trichologist in Idaho
-                Falls and Rexburg. She finds the real cause of thinning hair with
-                a comprehensive scalp analysis, then builds a science-based plan
-                to treat it. Not rosemary oil. Not one more product. The actual
-                reason.
+                Not rosemary oil. Not another product. Not guesswork. Megan Keck
+                is an AMCA-certified clinical trichologist serving Eastern Idaho
+                who looks beyond thinning hair to connect the patterns, assess
+                contributing factors, and build a science-backed plan for
+                healthier, fuller hair.
               </AnswerSummary>
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -124,7 +124,7 @@ export default function Home() {
                 aria-hidden
                 className="absolute -left-3 -top-3 hidden h-16 w-16 border-l-2 border-t-2 border-gold md:block"
               />
-              <div className="relative float-soft">
+              <div className="relative">
                 <Photo
                   src="/images/megan-suite.jpg"
                   alt="Megan Luthy in her private hair studio"

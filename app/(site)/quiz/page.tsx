@@ -19,10 +19,10 @@ export default function Quiz() {
             Let&rsquo;s get to the bottom of it
           </h1>
           <p className="mx-auto mt-5 max-w-prose text-lg text-ink/80">
-            Your hair is a reflection of your whole health, so these questions go
-            a little deeper than most. It takes about ten minutes, and it gives
-            Megan a real head start on finding your cause. Private and
-            confidential, your answers go only to her.
+            Your hair is a reflection of your whole health, so this form looks
+            deeper than the scalp. In about 10 minutes, you&rsquo;ll share the
+            history, habits, and health factors that impact your hair and scalp.
+            Your answers are private, confidential, and reviewed only by Megan.
           </p>
         </div>
         <div className="mt-10">

@@ -21,8 +21,8 @@ export default function Nav() {
     <header
       className={`sticky top-0 z-50 border-b transition-all duration-200 ${
         scrolled
-          ? "border-line bg-cream/95 backdrop-blur py-2"
-          : "border-transparent bg-cream py-4"
+          ? "border-line bg-cream/95 backdrop-blur py-2 shadow-[0_1px_0_rgba(31,29,26,0.04)]"
+          : "border-line/70 bg-cream py-4"
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5">
