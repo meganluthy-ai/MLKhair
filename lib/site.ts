@@ -12,8 +12,10 @@ export const site = {
   description:
     "Science-based hair loss treatment, scalp health, and salon services with Megan Luthy, AMCA-certified clinical trichologist serving Idaho Falls and Rexburg, Idaho, plus remote consults.",
 
-  // Booking stays on Acuity (build brief). Every CTA points here.
+  // Booking on Acuity. The scalp-analysis CTAs use bookingUrl; the nav's
+  // general "Book your appointment" button uses bookingUrlMain.
   bookingUrl: "https://MeganKeckHair.as.me/?appointmentType=68646028",
+  bookingUrlMain: "https://megankeckhair.as.me/schedule/e055413c",
 
   // Contact (from Megan's card + pricing menu)
   phone: "208-390-6695",

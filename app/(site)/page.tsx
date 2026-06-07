@@ -106,7 +106,7 @@ export default function Home() {
               className="mt-7"
               items={[
                 "AMCA-certified trichologist",
-                "17+ years behind the chair",
+                "Experienced cosmetologist + educator",
                 "In person or by video",
               ]}
             />

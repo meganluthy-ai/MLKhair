@@ -48,12 +48,12 @@ export default function Nav() {
             </Link>
           ))}
           <a
-            href={site.bookingUrl}
+            href={site.bookingUrlMain}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-accent"
           >
-            Book Scalp Analysis
+            Book your appointment
           </a>
         </nav>
 
@@ -81,12 +81,12 @@ export default function Nav() {
               </Link>
             ))}
             <a
-              href={site.bookingUrl}
+              href={site.bookingUrlMain}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-accent mt-2"
             >
-              Book Scalp Analysis
+              Book your appointment
             </a>
           </div>
         </nav>
