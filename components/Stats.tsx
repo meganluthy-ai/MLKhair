@@ -5,10 +5,10 @@ import { useEffect, useRef, useState } from "react";
 type Stat = { value: string; label: string; countTo?: number; suffix?: string };
 
 const stats: Stat[] = [
-  { value: "17+", label: "Years behind the chair", countTo: 17, suffix: "+" },
-  { value: "AMCA", label: "Certified clinical trichologist" },
-  { value: "2", label: "Idaho locations, plus remote", countTo: 2 },
-  { value: "1·3·6·9·12", label: "Months of tracked progress" },
+  { value: "17+", label: "Hair expertise", countTo: 17, suffix: "+" },
+  { value: "USTI + AMCA", label: "Clinical Trichologist" },
+  { value: "Continued Ed.", label: "Beauty + science" },
+  { value: "Guided Support", label: "Clear next steps" },
 ];
 
 function useInView<T extends HTMLElement>() {
@@ -57,7 +57,7 @@ export default function Stats() {
     <div className="grid grid-cols-2 gap-px overflow-hidden rounded-md border border-cream/15 bg-cream/15 md:grid-cols-4">
       {stats.map((s) => (
         <div key={s.label} className="bg-evergreen p-6 text-center md:p-8">
-          <div className="font-display text-3xl text-gold md:text-4xl">
+          <div className="font-display text-2xl text-gold md:text-3xl">
             {s.countTo ? <Counter to={s.countTo} suffix={s.suffix} /> : s.value}
           </div>
           <p className="mt-2 text-sm leading-snug text-cream">{s.label}</p>

@@ -42,27 +42,27 @@ const faqs: Faq[] = [
 const pillars = [
   {
     icon: Microscope,
-    eyebrow: "The hero work",
+    eyebrow: "The root work",
     title: "Hair & Scalp Health",
-    body: "Thinning, shedding, a widening part, or a receding line. We find the cause under the microscope, then build a multi-therapeutic plan to treat it.",
+    body: "Shedding, thinning, a wider part, itching, flaking, or scalp irritation? Start here for care that looks beyond the surface.",
     href: "/hair-loss",
-    cta: "Explore hair loss care",
+    cta: "Start Your Hair & Scalp Plan",
   },
   {
     icon: Scissors,
     eyebrow: "Behind the chair",
     title: "Salon Services",
-    body: "Seventeen years of cut, color, and smoothing work. The same trained eye that reads a scalp also gives a clean, healthy haircut and color.",
+    body: "Custom cuts and professional color designed for beautiful shine, lasting coverage, and long-term hair and scalp health.",
     href: "/services",
-    cta: "See salon services",
+    cta: "Schedule Your Cut or Color",
   },
   {
     icon: Sparkles,
     eyebrow: "Between visits",
     title: "At-Home Care",
-    body: "The right products for your actual hair type, not whatever is trending. Shampoo was always made for your scalp. We help you use it well.",
+    body: "Simple product guidance for your scalp, hair type, and goals, so your routine supports the work we are doing.",
     href: "/shop",
-    cta: "Shop by hair type",
+    cta: "Build Your Home Routine",
   },
 ];
 
@@ -151,7 +151,7 @@ export default function Home() {
         <Reveal>
           <Eyebrow>What we do</Eyebrow>
           <h2 className="max-w-2xl font-display text-3xl text-evergreen md:text-4xl">
-            One practice, three ways to help your hair
+            One practice. Three ways to support healthier hair.
           </h2>
         </Reveal>
         <div className="mt-12 grid gap-8 md:grid-cols-3">
@@ -192,27 +192,26 @@ export default function Home() {
           <Reveal>
             <Eyebrow>Meet Megan</Eyebrow>
             <h2 className="font-display text-3xl text-evergreen md:text-4xl">
-              Seventeen years behind the chair, now trained to read what the chair could not
+              When your hair changes, you need someone who knows how to look deeper.
             </h2>
             <div className="prose-body mt-5 text-ink/80">
               <p>
-                Megan spent more than seventeen years as a licensed
-                cosmetologist before she got tired of watching clients lose
-                hair and having nothing real to offer them. So she went and
-                studied the science. She is now an AMCA-certified clinical
-                trichologist through the US Trichology Institute.
+                After more than seventeen years behind the chair, Megan saw how
+                often shedding, thinning, scalp irritation, and texture changes
+                were met with surface-level answers.
               </p>
               <p>
-                That mix is the whole point. She understands hair the way a
-                stylist does and the scalp the way a clinician does, and she
-                refuses to hand you guesswork dressed up as a cure.
+                That is why she studied clinical trichology, to better recognize
+                hair and scalp patterns, consider contributing factors, and
+                guide clients toward appropriate next steps when their hair
+                changes.
               </p>
             </div>
             <Link
               href="/about"
               className="mt-6 inline-flex items-center gap-1.5 font-semibold text-gold-dark hover:text-gold-dark"
             >
-              Read Megan&rsquo;s story <ArrowRight size={16} />
+              Read Megan&rsquo;s Story <ArrowRight size={16} />
             </Link>
           </Reveal>
         </div>
@@ -229,27 +228,28 @@ export default function Home() {
             />
           </Reveal>
           <Reveal delay={120}>
-            <Eyebrow rule>The approach</Eyebrow>
+            <Eyebrow rule>The Approach</Eyebrow>
             <h2 className="font-display text-3xl md:text-4xl">
-              We find the why, then treat it from more than one angle
+              Clinical trichology, shaped by years of real hair experience.
             </h2>
             <div className="prose-body mt-5">
               <p>
-                Most hair advice online is marketing noise. One miracle serum,
-                one viral oil, one drug. Real hair loss rarely has one cause, so
-                it rarely has a single fix. Megan calls it the multi-therapeutic
-                approach: identify the root cause through scalp analysis and your
-                health history, then combine the evidence-based therapies that fit
-                you, from professional scalp treatments and low-light therapy to
-                growth serums, nutrition, and medical collaboration when it is
-                called for.
+                Hair loss is rarely addressed well with one product, one serum,
+                or one simple answer. Shedding and thinning can be influenced by
+                30+ potential causes and contributing factors.
+              </p>
+              <p>
+                At MLK Hair, your care begins with a detailed intake, scalp
+                analysis, and scope imaging, going beyond surface-level hair care
+                to connect your history, scalp environment, and hair patterns
+                with clear, personalized next steps.
               </p>
             </div>
             <Link
               href="/approach"
               className="link-underline mt-6 inline-flex items-center gap-1.5 font-semibold text-gold"
             >
-              See the full method <ArrowRight size={16} />
+              See the Full Method <ArrowRight size={16} />
             </Link>
           </Reveal>
         </div>
