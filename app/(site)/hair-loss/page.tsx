@@ -45,7 +45,7 @@ const steps = [
   {
     n: "2",
     title: "A plan built for your cause",
-    body: "Based on what we find, Megan combines the therapies that fit you: professional scalp treatments, low-light therapy, growth serums, nutrition, and medical collaboration when it belongs in the plan.",
+    body: "Based on what we find, Megan combines the therapies that fit you: professional scalp treatments, low-level light therapy, growth serums, nutrition, and medical collaboration when it belongs in the plan.",
   },
   {
     n: "3",

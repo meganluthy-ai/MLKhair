@@ -7,55 +7,82 @@ import { faqSchema, jsonLd, type Faq } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "The Multi-Therapeutic Approach to Hair Loss",
   description:
-    "Most hair loss has more than one cause, so it needs more than one therapy. The multi-therapeutic approach finds the root cause, then combines evidence-based treatments instead of relying on a single product or drug.",
+    "Hair loss is rarely caused by one isolated thing. The MLK Hair Method starts with your pattern, then builds a personalized multi-therapeutic plan around what your hair and scalp need.",
   alternates: { canonical: "/approach" },
 };
 
-const method = [
+const method: { n: string; title: string; body: string[] }[] = [
   {
     n: "01",
-    title: "Find the root cause",
-    body: "Everything starts with a comprehensive scalp analysis. We examine your scalp and follicles under magnification and take a full health and lifestyle history, hormones, stress, medications, nutrition, family pattern, and how your hair has changed over time. Hair loss is a symptom. This step finds what it is a symptom of.",
+    title: "Identify the pattern",
+    body: [
+      "Your care starts with a detailed intake, scalp analysis, and scope imaging. Megan looks at your shedding timeline, scalp condition, density changes, health history, medications, nutrition, stress, family pattern, and how your hair has changed over time.",
+      "Hair loss is a sign that something has shifted. This step helps connect what you are seeing with what may be contributing, so your plan is based on your pattern, not guesswork.",
+    ],
   },
   {
     n: "02",
-    title: "Treat the scalp first",
-    body: "Healthy hair grows from a healthy scalp, so we address inflammation, buildup, flaking, and irritation before anything else. Professional in-suite scalp treatments reset the environment the follicle has to grow in. Shampoo was always made for your scalp, not just your hair, and we make sure yours is doing its job.",
+    title: "Start with the scalp",
+    body: [
+      "Healthy hair needs a healthy place to grow. Megan evaluates the scalp for signs of buildup, flaking, irritation, inflammation, oil imbalance, or other visible changes that may affect the follicle environment.",
+      "When the scalp needs support, professional in-suite treatments and targeted home care help create a better foundation for growth.",
+    ],
   },
   {
     n: "03",
     title: "Support the follicle",
-    body: "Depending on what the analysis shows, we layer in evidence-based therapies that stimulate and protect the follicle, such as low-light laser therapy and targeted growth serums. These are chosen for your cause, not applied to everyone the same way.",
+    body: [
+      "Once the pattern is clearer, Megan layers in therapies to support the follicle and hair-growth cycle. This may include low-level light therapy, growth-supportive topicals, microneedling support, non-prescription DHT-support options, or other targeted recommendations.",
+      "The goal is to choose the right therapies for your pattern, your goals, and the level of support your hair and scalp need, without defaulting every client to the same product, prescription, or protocol.",
+    ],
   },
   {
     n: "04",
-    title: "Address the inside",
-    body: "Hair is one of the first places the body shows a deficiency or imbalance. Where it is relevant, we look at nutrition and the lifestyle factors that feed or starve hair growth, so the plan works from the inside as well as the outside.",
+    title: "Address contributing factors",
+    body: [
+      "Sometimes hair loss has one clear driver. Other times, the pattern reflects several overlapping factors. The MLK Hair Method is designed to look at both.",
+      "Megan considers the scalp, follicle, timing, routine, internal stressors, and changes in the body so your plan can be as simple or as layered as your pattern requires, not built around a preset product line or one-size-fits-all protocol.",
+    ],
   },
   {
     n: "05",
-    title: "Collaborate with medicine",
-    body: "A trichologist is not a replacement for a doctor. When your analysis points to a medical cause, Megan coordinates with your physician or dermatologist so the medical and the trichological sides of your care line up instead of working in the dark.",
+    title: "Know when medical care belongs",
+    body: [
+      "Megan knows when hair and scalp findings point beyond trichology care. Clinical trichology does not replace medical diagnosis, injections, biopsy, or lab work, but it can help you understand your pattern and know when a licensed medical provider should be involved.",
+      "Trichology care can still help you support your hair and scalp alongside appropriate medical care.",
+    ],
   },
   {
     n: "06",
     title: "Track, measure, adjust",
-    body: "We document progress with photos at months one, three, six, nine, and twelve, and adjust the plan as your hair and scalp respond. Hair is slow, so we measure it over months, not days, and let the photos tell the truth.",
+    body: [
+      "Hair growth is best measured over months, not days. The hair you see today often reflects what was happening in the body and scalp 2 to 4 months ago, which is why progress has to be tracked over time.",
+      "Megan documents changes with photos, follow-ups, and scope findings so your plan can be adjusted as your hair and scalp respond. You will not be left wondering if anything is changing, progress is monitored with evidence, not memory or guesswork.",
+    ],
   },
 ];
 
 const faqs: Faq[] = [
   {
     q: "What is the multi-therapeutic approach?",
-    a: "It is the practice of finding the root cause of hair loss through scalp analysis and health history, then treating it with several evidence-based therapies at once, professional scalp treatments, low-light therapy, growth serums, nutrition, and medical collaboration, rather than relying on a single product or a single drug. Hair loss usually has more than one driver, so it responds best to more than one therapy.",
+    a: [
+      "It is the clinical trichology approach of building support around the pattern Megan sees. Sometimes the plan is simple. Other times, hair loss needs support from more than one angle.",
+      "Megan may use structured treatment tools, but the plan is chosen around your hair-loss pattern, scalp environment, history, goals, and response over time, not a one-size-fits-all package.",
+    ],
   },
   {
     q: "Why not just use minoxidil or a prescription?",
-    a: "A single drug treats a single mechanism. It can be part of a plan, but on its own it ignores everything else that may be driving your loss, like a scalp condition, a nutritional gap, or a stress trigger. The multi-therapeutic approach uses the right combination for your cause, which is why it can do more than any one product alone.",
+    a: [
+      "Minoxidil or prescription treatment can be helpful when it fits the pattern. Some clients choose those tools. Others prefer to avoid prescription hair-growth medications or want non-prescription DHT-support options when appropriate.",
+      "At MLK Hair, the goal is not to reject proven tools or push every client into the same treatment path. The goal is to understand where each option fits inside a complete multi-therapeutic plan.",
+    ],
   },
   {
-    q: "Does this approach actually work?",
-    a: "When the follicle is still viable and the cause is treatable, combining therapies that each support hair growth tends to outperform any single one of them. The honest part is that results depend on your specific cause, and the scalp analysis is what tells us how realistic regrowth versus stabilization is for you. Progress is measured with photos over months so the results are visible, not assumed.",
+    q: "What kind of results can I expect?",
+    a: [
+      "When the follicle is still viable and the contributing factors can be supported, the goal is to create the best possible environment for the hair and scalp to respond. That may include reduced shedding, improved scalp comfort, healthier hair quality, stronger-looking hair, or visible regrowth when the hair is capable of responding.",
+      "Results still depend on the type of hair loss, how long it has been present, follicle health, consistency, and whether scarring or permanent damage is involved. That is why Megan tracks progress with photos, follow-ups, and plan adjustments over time, so you can see what is changing and understand what comes next.",
+    ],
   },
 ];
 
@@ -75,13 +102,14 @@ export default function Approach() {
           </h1>
           <div className="mt-7">
             <AnswerSummary>
-              Most hair loss has more than one cause, so it needs more than one
-              therapy. The multi-therapeutic approach finds the root cause
-              through scalp analysis and health history, then combines
-              evidence-based treatments, scalp care, low-light therapy, growth
-              serums, nutrition, and medical collaboration, instead of relying on
-              a single product or drug.
+              Hair loss is rarely caused by one isolated thing, so your plan
+              should not be built around one isolated solution. The MLK Hair
+              Method starts with your pattern, then builds the plan around what
+              your hair and scalp need.
             </AnswerSummary>
+          </div>
+          <div className="mt-8">
+            <BookButton label="Start With a Hair & Scalp Consultation" />
           </div>
         </div>
       </Section>
@@ -102,7 +130,11 @@ export default function Approach() {
                   <h2 className="font-display text-2xl text-evergreen">
                     {m.title}
                   </h2>
-                  <p className="mt-2 text-ink/80">{m.body}</p>
+                  <div className="mt-2 space-y-2 text-ink/80">
+                    {m.body.map((para, j) => (
+                      <p key={j}>{para}</p>
+                    ))}
+                  </div>
                 </div>
               </div>
             </Reveal>
@@ -115,20 +147,20 @@ export default function Approach() {
           <div className="max-w-3xl">
             <Eyebrow>Why it is different</Eyebrow>
             <h2 className="font-display text-3xl text-evergreen md:text-4xl">
-              One product treats one thing. Your hair is not one thing.
+              Hair loss needs a method, not a guess
             </h2>
             <div className="prose-body mt-5 text-ink/80">
               <p>
-                The reason so many people feel like they have tried everything is
-                that they have tried everything one at a time. A shampoo here, an
-                oil there, a drug from a quick visit somewhere else. Each one
-                aimed at a single piece of a problem that has several pieces.
+                Many hair-loss solutions start with the treatment: try this
+                serum, take this supplement, use this prescription, book this
+                service. The MLK Hair Method starts earlier, with the pattern.
               </p>
               <p>
-                The multi-therapeutic approach is simply the decision to stop
-                doing that. Find the cause, treat the whole picture, and measure
-                it honestly. That is the science, and it is the part nobody
-                selling you a quick fix wants to slow down for.
+                Megan uses clinical trichology, detailed intake, scalp analysis,
+                and scope imaging to understand what your hair and scalp are
+                showing before choosing the next step. From there, she builds a
+                personalized multi-therapeutic plan designed to support the
+                scalp, follicle, contributing factors, and progress over time.
               </p>
             </div>
           </div>
@@ -145,11 +177,24 @@ export default function Approach() {
         <div className="mt-10 max-w-3xl">
           <FAQ items={faqs} />
         </div>
-        <Reveal>
-          <div className="mt-12">
-            <BookButton />
+      </Section>
+
+      {/* Final CTA */}
+      <Section variant="olive">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="font-display text-3xl md:text-4xl">
+            Not sure where to start?
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl">
+            You do not need to know what type of hair loss you have before
+            booking. Start with a Hair & Scalp Consultation, and Megan will help
+            you understand your pattern, what may be contributing, and what next
+            steps make sense.
+          </p>
+          <div className="mt-8 flex justify-center">
+            <BookButton label="Start Your Hair & Scalp Plan" />
           </div>
-        </Reveal>
+        </div>
       </Section>
     </>
   );

@@ -46,7 +46,7 @@ const faqItems: MosaicItem[] = [
   {
     icon: Layers,
     q: "What is the multi-therapeutic approach?",
-    a: "Rather than relying on one product or one drug, the multi-therapeutic approach finds the root cause of your hair loss and then combines several evidence-based therapies that fit your situation, professional scalp treatments, low-light therapy, growth serums, nutrition, and medical collaboration. Hair loss usually has more than one driver, so it responds best to more than one therapy.",
+    a: "Rather than relying on one product or one drug, the multi-therapeutic approach finds the root cause of your hair loss and then combines several evidence-based therapies that fit your situation, professional scalp treatments, low-level light therapy, growth serums, nutrition, and medical collaboration. Hair loss usually has more than one driver, so it responds best to more than one therapy.",
   },
   {
     icon: ScanSearch,
