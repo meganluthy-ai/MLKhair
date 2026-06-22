@@ -4,7 +4,7 @@
 export const site = {
   name: "MLK Hair",
   legalName: "MLK Hair",
-  owner: "Megan Luthy",
+  owner: "Megan Luthy Keck",
   ownerAlt: "Megan Keck",
   credential: "AMCA-certified clinical trichologist",
   url: "https://mlkhair.com",

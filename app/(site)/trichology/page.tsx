@@ -7,71 +7,94 @@ import {
   ScanSearch,
   Clock,
   Scale,
-  Lock,
   Users,
+  Lock,
 } from "lucide-react";
 import { Section, Eyebrow, BookButton, QuizButton } from "@/components/ui";
 import Reveal from "@/components/Reveal";
-import FaqMosaic, { type MosaicItem } from "@/components/FaqMosaic";
+import FAQ from "@/components/FAQ";
 import Photo from "@/components/Photo";
-import { faqSchema, jsonLd } from "@/lib/schema";
+import { faqSchema, jsonLd, type Faq } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "What Is a Trichologist? Hair Loss Science Explained",
+  title: "What Is a Trichologist? Hair & Scalp Science Explained",
   description:
-    "A trichologist studies the hair and scalp and finds the cause of hair loss instead of guessing. Learn what trichology is, what a scalp analysis involves, and how a trichologist differs from a dermatologist.",
+    "Trichology is the study of the hair and scalp. Learn what a clinical trichologist does, what happens in a scalp analysis, and how trichology helps you understand hair changes and clear next steps.",
   alternates: { canonical: "/trichology" },
 };
 
-// NOTE FOR MEGAN: this ports the question structure from the current Wix
-// Trichology page, the strongest asset on the old site. Where your original
-// wording is better, paste yours in. The question set + FAQ schema are what AI
-// engines and Google extract from.
-const faqItems: MosaicItem[] = [
+const faqItems: (Faq & { icon: JSX.Element })[] = [
   {
-    icon: Microscope,
+    icon: <Microscope size={18} strokeWidth={1.75} className="text-gold-dark" />,
     q: "What is trichology?",
-    a: "Trichology is the study of the hair and scalp, including how hair grows, why it falls out, and what keeps the scalp healthy. A clinical trichologist is trained to assess the hair and scalp, identify the cause of a problem, and build a treatment plan, working alongside medical providers when a condition calls for it.",
+    a: [
+      "Trichology is the study of the hair and scalp, including how hair grows, why shedding happens, how the scalp environment affects the follicle, and what factors may contribute to hair changes.",
+      "Clinical trichology helps connect the hair, scalp, history, routine, and contributing factors so the next step is based on a clearer picture, not guesswork.",
+    ],
   },
   {
-    icon: Award,
-    q: "What makes Megan a clinical trichologist?",
-    a: "A clinical trichologist has completed specialized training in hair and scalp health. Megan Luthy is certified through the US Trichology Institute and is AMCA-certified, on top of more than seventeen years as a licensed cosmetologist. That combination means she reads hair like a stylist and the scalp like a clinician.",
+    icon: <Award size={18} strokeWidth={1.75} className="text-gold-dark" />,
+    q: "What makes Megan's perspective different?",
+    a: [
+      "Megan combines more than seventeen years as a licensed cosmetologist with clinical trichology training and AMCA certification.",
+      "That combination matters. She understands how hair behaves behind the chair, color history, texture changes, breakage, styling, density, and scalp concerns, while also using trichology tools like detailed intake, scalp analysis, and scope imaging to look deeper.",
+    ],
   },
   {
-    icon: Stethoscope,
-    q: "What conditions can a trichologist help with?",
-    a: "Common ones include androgenetic alopecia (genetic thinning), telogen effluvium (stress and shock shedding), alopecia areata (patchy loss), and a range of scalp disorders like dandruff, seborrheic dermatitis, and chronic irritation. A trichologist also helps with general thinning, excessive shedding, and scalp health, and refers to a physician when something points to a medical cause.",
+    icon: <Stethoscope size={18} strokeWidth={1.75} className="text-gold-dark" />,
+    q: "What concerns can trichology support?",
+    a: [
+      "Trichology can support concerns such as excessive shedding, gradual thinning, a wider part, loss of style options due to hair changes, reduced density, scalp irritation, flaking, itching, buildup, breakage, and changes in hair quality.",
+      "Common patterns may include androgenetic alopecia, telogen effluvium, alopecia areata, traction-related loss, scalp conditions, and other forms of hair and scalp changes. When something appears medical or outside trichology care, Megan will recommend involving a licensed medical provider.",
+    ],
   },
   {
-    icon: Layers,
-    q: "What is the multi-therapeutic approach?",
-    a: "Rather than relying on one product or one drug, the multi-therapeutic approach finds the root cause of your hair loss and then combines several evidence-based therapies that fit your situation, professional scalp treatments, low-level light therapy, growth serums, nutrition, and medical collaboration. Hair loss usually has more than one driver, so it responds best to more than one therapy.",
+    icon: <Layers size={18} strokeWidth={1.75} className="text-gold-dark" />,
+    q: "Why does trichology look at more than one factor?",
+    a: [
+      "Hair loss is not always caused by one isolated issue. Sometimes there is one clear driver, and other times the pattern reflects several overlapping factors.",
+      "Trichology looks at the scalp, follicle, shedding timeline, health history, routine, and contributing factors so support can be as simple or as layered as the pattern requires.",
+    ],
   },
   {
-    icon: ScanSearch,
+    icon: <ScanSearch size={18} strokeWidth={1.75} className="text-gold-dark" />,
     q: "What happens during a scalp analysis?",
-    a: "Megan examines your scalp and follicles under magnification and takes a full health and lifestyle history. Together those reveal what is actually happening, the condition of your scalp, the health of your follicles, and the likely cause of the change you have noticed. You leave understanding your hair instead of guessing, with a plan for what to do next.",
+    a: [
+      "Megan reviews your hair history, shedding timeline, health and lifestyle factors, medications, routine, and goals. She then evaluates your hair and scalp, uses scope imaging for a closer look, and documents baseline findings.",
+      "You leave with a clearer understanding of what may be contributing and what next steps make sense.",
+    ],
   },
   {
-    icon: Clock,
+    icon: <Clock size={18} strokeWidth={1.75} className="text-gold-dark" />,
     q: "How long does it take to see results?",
-    a: "Hair grows slowly, so meaningful change usually shows up between three and six months, with more by months nine and twelve. Megan documents progress with photos along the way. Month three is the point where many people feel discouraged even though the plan is taking hold, so she prepares you for it.",
+    a: [
+      "Hair growth takes time. Many clients begin evaluating early progress within 2 to 4 months, but visible changes often take longer depending on the type of hair loss, how long it has been present, follicle health, consistency, and whether scarring or permanent damage is involved.",
+      "Megan tracks progress with photos, follow-ups, and scope findings so changes can be measured over time.",
+    ],
   },
   {
-    icon: Scale,
+    icon: <Scale size={18} strokeWidth={1.75} className="text-gold-dark" />,
     q: "Trichologist or dermatologist, what is the difference?",
-    a: "A dermatologist is a medical doctor who treats skin, hair, and nail conditions and can prescribe medication and perform procedures. A trichologist specializes specifically in the hair and scalp and focuses on identifying causes and combining therapies, and does not prescribe drugs. The two are not in competition. A good trichologist collaborates with your dermatologist or physician when a medical issue is involved, so you get both the specialized hair focus and the medical care.",
+    a: [
+      "A dermatologist is a medical doctor who can diagnose, prescribe medication, perform biopsies, and treat medical skin conditions.",
+      "A clinical trichologist focuses specifically on hair and scalp concerns, looking at hair-loss patterns, scalp health, growth cycles, history, routine, and contributing factors. Megan does not replace medical care. When diagnosis, prescription treatment, lab work, biopsy, or injections are needed, she will recommend involving the appropriate licensed provider.",
+    ],
   },
   {
-    icon: Users,
+    icon: <Users size={18} strokeWidth={1.75} className="text-gold-dark" />,
     q: "Do you treat men, or only women?",
-    a: "Both. Hair loss affects everyone, and while the pattern can look different from person to person, the work is the same: find the cause and treat it. Megan sees men and women, and the conversation is always private and judgment-free.",
+    a: [
+      "Both. Hair loss and scalp concerns can affect men and women, though the pattern may look different from person to person. Male pattern hair loss can begin as early as the late teens or early 20s, while many women also experience hair loss at some point in their lives.",
+      "Megan works with clients of all ages experiencing shedding, thinning, scalp irritation, density changes, and hair-quality changes in a private, judgment-free setting.",
+    ],
   },
   {
-    icon: Lock,
+    icon: <Lock size={18} strokeWidth={1.75} className="text-gold-dark" />,
     q: "Do I need a referral, and is it confidential?",
-    a: "No referral is needed. You can book a scalp analysis directly. The setting is private and confidential by design, because hair loss is personal and you deserve a calm, judgment-free place to talk about it.",
+    a: [
+      "No referral is needed. You can book directly with Megan.",
+      "Appointments are private and confidential. Hair loss can feel personal, and the consultation is designed to give you space to talk openly, ask questions, and understand what may be happening without feeling rushed or dismissed.",
+    ],
   },
 ];
 
@@ -83,22 +106,29 @@ export default function Trichology() {
         dangerouslySetInnerHTML={jsonLd(faqSchema(faqItems))}
       />
 
-      {/* Hero: bordered "why I chose trichology" headline + real photo */}
+      {/* Hero: bordered headline + real photo */}
       <Section>
         <div className="grid items-center gap-10 md:grid-cols-[1.05fr_0.95fr]">
           <Reveal>
             <Eyebrow rule>Trichology, explained</Eyebrow>
             <div className="rounded-md border border-gold/60 p-7 md:p-8">
               <h1 className="font-display text-4xl leading-[1.05] text-evergreen md:text-5xl">
-                Why I chose trichology
+                Why trichology matters
               </h1>
-              <p className="mt-4 max-w-prose text-lg leading-relaxed text-ink/80">
-                Behind the chair for seventeen years, Megan kept meeting the same
-                quiet heartbreak: clients losing hair, having tried everything,
-                with no real answer. Trichology is how she finally got to give
-                them one. It is the study of the hair and scalp, and it is the
-                science of finding the why.
-              </p>
+              <div className="prose-body mt-4 text-ink/80">
+                <p>
+                  After more than seventeen years behind the chair, Megan kept
+                  hearing the same concern: clients were losing hair, noticing
+                  changes, or struggling with scalp issues, but they did not know
+                  where to start.
+                </p>
+                <p>
+                  Trichology gave her a framework to look deeper. It studies the
+                  hair, scalp, growth cycle, shedding patterns, and contributing
+                  factors that can affect hair and scalp health, helping clients
+                  move from guessing to clearer next steps.
+                </p>
+              </div>
             </div>
           </Reveal>
           <Reveal delay={120}>
@@ -119,50 +149,58 @@ export default function Trichology() {
             <h2 className="font-display text-3xl text-evergreen md:text-4xl">
               A specialist in the science of hair and scalp
             </h2>
-            <p className="mt-5 max-w-prose text-lg leading-relaxed text-ink/80">
-              A trichologist studies the hair and scalp and finds the cause of
-              hair loss instead of handing you another product. Megan Luthy is an
-              AMCA-certified clinical trichologist in Idaho Falls and Rexburg who
-              assesses your scalp under magnification, identifies the root cause,
-              and treats it, collaborating with your doctor when a medical issue
-              is involved.
-            </p>
+            <div className="prose-body mt-5 text-ink/80">
+              <p>
+                A clinical trichologist is trained to evaluate hair and scalp
+                concerns through the lens of hair growth, scalp health, shedding
+                patterns, history, lifestyle, and contributing factors.
+              </p>
+              <p>
+                Megan Keck is an AMCA-certified clinical trichologist serving
+                Eastern Idaho. She uses detailed intake, scalp analysis, and scope
+                imaging to help clients understand what may be contributing to
+                shedding, thinning, scalp irritation, or changes in hair density,
+                and what next steps make sense.
+              </p>
+              <p>
+                When medical diagnosis, lab work, prescription treatment, biopsy,
+                or injections are needed, Megan will recommend involving the
+                appropriate licensed medical provider.
+              </p>
+            </div>
           </div>
         </Reveal>
       </Section>
 
       <Section>
         <Reveal>
-          <Eyebrow rule>The questions people ask</Eyebrow>
+          <Eyebrow rule>Trichology questions</Eyebrow>
           <h2 className="max-w-2xl font-display text-3xl text-evergreen md:text-4xl">
-            Everything you wanted to know about trichology
+            What to know before you book
           </h2>
         </Reveal>
-        <div className="mt-12">
-          <FaqMosaic items={faqItems} />
+        <div className="mt-10 max-w-3xl">
+          <FAQ items={faqItems} />
         </div>
       </Section>
 
-      <Section>
-        <Reveal>
-          <div className="max-w-3xl">
-            <h2 className="font-display text-3xl text-evergreen md:text-4xl">
-              The short version
-            </h2>
-            <div className="prose-body mt-5 text-ink/80">
-              <p>
-                If your hair is changing and you are tired of guessing, a scalp
-                analysis is where you get a real answer. Not a product. Not a
-                guess. An actual look at what is going on and a plan built around
-                it.
-              </p>
-            </div>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <BookButton />
-              <QuizButton />
-            </div>
+      {/* Final CTA */}
+      <Section variant="olive">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="font-display text-3xl md:text-4xl">
+            Still wondering where to start?
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl">
+            You do not need to know what type of hair loss you have before
+            booking. Start with a Hair & Scalp Consultation, and Megan will help
+            you understand your pattern, what may be contributing, and what next
+            steps make sense.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <BookButton label="Start Your Hair & Scalp Plan" />
+            <QuizButton label="Take the Hair & Scalp Quiz" onDark />
           </div>
-        </Reveal>
+        </div>
       </Section>
     </>
   );
