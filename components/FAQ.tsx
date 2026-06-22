@@ -28,8 +28,12 @@ export default function FAQ({ items }: { items: Faq[] }) {
               </span>
             </button>
             {isOpen && (
-              <div className="pb-6 pr-8 text-ink/80">
-                <p className="max-w-prose">{item.a}</p>
+              <div className="space-y-3 pb-6 pr-8 text-ink/80">
+                {(Array.isArray(item.a) ? item.a : [item.a]).map((para, j) => (
+                  <p key={j} className="max-w-prose">
+                    {para}
+                  </p>
+                ))}
               </div>
             )}
           </div>

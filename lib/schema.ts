@@ -55,7 +55,8 @@ export function personSchema() {
   };
 }
 
-export type Faq = { q: string; a: string };
+// `a` may be a single paragraph or several (string[]).
+export type Faq = { q: string; a: string | string[] };
 
 export function faqSchema(faqs: Faq[]) {
   return {
@@ -64,7 +65,10 @@ export function faqSchema(faqs: Faq[]) {
     mainEntity: faqs.map((f) => ({
       "@type": "Question",
       name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: Array.isArray(f.a) ? f.a.join(" ") : f.a,
+      },
     })),
   };
 }

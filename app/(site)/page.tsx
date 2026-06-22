@@ -19,23 +19,71 @@ export const metadata: Metadata = {
 const faqs: Faq[] = [
   {
     q: "What does a trichologist do that a regular stylist or doctor does not?",
-    a: "A trichologist studies the hair and scalp specifically. Megan looks at your scalp under magnification, takes a full health and lifestyle history, and finds the cause of the shedding or thinning instead of handing you one more product to try. When a medical issue is involved, she works alongside your doctor or dermatologist rather than replacing them.",
+    a: [
+      "A stylist can help thinning hair look fuller. A dermatologist can diagnose and prescribe. A clinical trichologist bridges the two by examining hair-loss patterns, scalp conditions, growth cycles, and contributing factors, then building a personalized multi-therapeutic plan to support the hair and scalp.",
+      "Cosmetology focuses on the hair from the scalp outward. Clinical trichology looks from the scalp inward, at the follicle, growth cycle, scalp environment, shedding patterns, health history, and lifestyle factors that may affect hair growth.",
+      "At MLK Hair, Megan combines more than seventeen years of salon experience with clinical trichology training, a detailed intake, scalp analysis, and scope imaging. She uses those findings to guide your plan, monitor progress, and adjust recommendations as your hair and scalp respond.",
+    ],
   },
   {
-    q: "I have already tried shampoos, oils, and minoxidil. Why would this be different?",
-    a: "Those are products. They are not a diagnosis. Most hair loss has a root cause, hormones, stress, nutrition, a scalp condition, or genetics, and the right plan depends on which one it is. The scalp analysis is where we find that out, so you stop guessing and start treating the actual problem.",
+    q: "I have already tried shampoos, oils, supplements, minoxidil, or prescription treatment. How is this different?",
+    a: [
+      "It is frustrating to try treatment after treatment without understanding why your hair is changing or seeing progress. At MLK Hair, care begins by looking more closely at your individual pattern, not just recommending another product.",
+      "Megan considers your shedding timeline, scalp condition, health history, lifestyle, current treatments, routine, and goals before building a personalized multi-therapeutic plan.",
+    ],
   },
   {
-    q: "Do I have to live near Idaho Falls or Rexburg?",
-    a: "No. Megan sees local clients in her private Idaho Falls suite and at her Rexburg chair, and she also consults remotely by Zoom or FaceTime, so you can work with her from anywhere.",
-  },
-  {
-    q: "Is this private?",
-    a: "Yes. Hair loss is hard to talk about, and the suite is private and confidential by design. There is no waiting room full of people and no judgment, just a calm place to figure out what is going on.",
+    q: "What happens during a hair-loss consultation?",
+    a: [
+      "Your consultation begins with a detailed review of your hair history, health, medications, lifestyle, nutrition, stress, routines, and other factors that may affect your hair and scalp.",
+      "Megan then evaluates your hair and scalp, reviews visible patterns, takes baseline photographs, and uses scope imaging for a closer look. You will leave with a clearer understanding of what may be contributing and a personalized plan for your next steps.",
+    ],
   },
   {
     q: "How soon will I see results?",
-    a: "Real regrowth takes time. Most people start to see meaningful change around the three to six month mark, which is why Megan documents progress with photos at months one, three, six, nine, and twelve. Month three can feel like nothing is happening even when it is, and she will walk you through what to expect so you do not give up early.",
+    a: [
+      "Most clients begin evaluating early progress within 2 to 4 months, but hair growth takes time. That is why Megan recommends a 6-month treatment plan, it gives your hair and scalp enough time to respond while allowing progress to be monitored and recommendations to be adjusted.",
+      "Early clinical outcomes may include reduced shedding, improved scalp comfort, and a healthier scalp condition before visible density changes are obvious. As the hair and scalp improve, clients often describe their hair as stronger, easier to style, less limp, and healthier overall. If your plan includes microneedling with exosome support, some clients may notice early signs of response within 4 to 10 weeks.",
+    ],
+  },
+  {
+    q: "Is hair loss reversible?",
+    a: [
+      "Yes, some forms of hair loss can improve significantly when the pattern is recognized early and the contributing factors are addressed. Other types require long-term management, and some are not fully reversible, especially when follicles have been permanently damaged or scarring is present.",
+      "Megan evaluates the pattern, scalp condition, shedding history, density changes, and possible contributing factors to help you understand what can improve, what needs ongoing support, what your hair needs now, and how to support it moving forward. She will be clear about what can be supported through trichology care.",
+    ],
+  },
+  {
+    q: "Is my appointment private?",
+    a: [
+      "Yes. Hair loss can feel personal and emotional, and your appointment is private and confidential. Your concerns are treated with care and discretion.",
+      "Appointments are designed to give you time to talk openly, ask questions, and understand what may be happening without feeling rushed, dismissed, or pressured into a product.",
+    ],
+  },
+  {
+    q: "Do I need to know what type of hair loss I have before booking?",
+    a: [
+      "No. You do not need to arrive with a diagnosis or know which service you need.",
+      "Start by sharing what you have noticed, such as increased shedding, a wider part, reduced density, breakage, itching, flaking, tenderness, or changes in texture. Megan will guide you in the appropriate next step.",
+    ],
+  },
+  {
+    q: "Will I need to see a doctor or dermatologist?",
+    a: [
+      "If your history, symptoms, or scalp findings suggest that lab work, diagnosis, prescription treatment, or another medical evaluation may be needed, Megan will explain what she is seeing and why another provider may need to be involved.",
+      "Trichology care can still help you understand your pattern and support your hair and scalp alongside the appropriate medical care.",
+    ],
+  },
+  {
+    q: "Do I have to leave my current stylist or barber?",
+    a: "No. Megan can manage your hair-loss and scalp care while you continue seeing your stylist or barber. She can also provide guidance or collaborate with them so color, extensions, styling, and chemical services support your overall plan.",
+  },
+  {
+    q: "Do I have to live near Idaho Falls or Rexburg?",
+    a: [
+      "No. Megan works with clients in Eastern Idaho and offers video consultations for clients who live farther away.",
+      "Some parts of the process, including hands-on scalp assessment and scope imaging, require an in-person appointment. For virtual appointments, a scope will be sent to you. Megan can help you determine the best starting point based on your location and concerns.",
+    ],
   },
 ];
 
