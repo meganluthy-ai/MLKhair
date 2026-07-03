@@ -25,9 +25,9 @@ export default function FAQ({ items }: { items: FaqItem[] }) {
               onClick={() => setOpen(isOpen ? null : i)}
               aria-expanded={isOpen}
             >
-              <span className="flex items-center gap-4">
+              <span className="flex items-center gap-3">
                 {item.icon && (
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold/15">
+                  <span className="flex w-5 shrink-0 justify-center">
                     {item.icon}
                   </span>
                 )}
@@ -40,7 +40,7 @@ export default function FAQ({ items }: { items: FaqItem[] }) {
               </span>
             </button>
             {isOpen && (
-              <div className={`space-y-3 pb-6 pr-8 text-ink/80 ${item.icon ? "sm:pl-14" : ""}`}>
+              <div className={`space-y-3 pb-6 pr-8 text-ink/80 ${item.icon ? "sm:pl-8" : ""}`}>
                 {(Array.isArray(item.a) ? item.a : [item.a]).map((para, j) => (
                   <p key={j} className="max-w-prose">
                     {para}

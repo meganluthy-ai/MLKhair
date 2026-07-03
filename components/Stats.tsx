@@ -1,14 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Scissors, Award, Sparkles, Compass, type LucideIcon } from "lucide-react";
 
-type Stat = { value: string; label: string; countTo?: number; suffix?: string };
+type Stat = { value: string; label: string; icon: LucideIcon; countTo?: number; suffix?: string };
 
 const stats: Stat[] = [
-  { value: "17+", label: "Hair expertise", countTo: 17, suffix: "+" },
-  { value: "USTI + AMCA", label: "Clinical Trichologist" },
-  { value: "Continued Ed.", label: "Beauty + science" },
-  { value: "Guided Support", label: "Clear next steps" },
+  { icon: Scissors, value: "17+ years", label: "Hair expertise", countTo: 17, suffix: "+ years" },
+  { icon: Award, value: "USTI + AMCA", label: "Clinical Trichologist" },
+  { icon: Sparkles, value: "Beauty + Science", label: "Continued education" },
+  { icon: Compass, value: "Guided Support", label: "Clear next steps" },
 ];
 
 function useInView<T extends HTMLElement>() {
@@ -57,7 +58,8 @@ export default function Stats() {
     <div className="grid grid-cols-2 gap-px overflow-hidden rounded-md border border-cream/15 bg-cream/15 md:grid-cols-4">
       {stats.map((s) => (
         <div key={s.label} className="bg-evergreen p-6 text-center md:p-8">
-          <div className="font-display text-2xl text-gold md:text-3xl">
+          <s.icon className="mx-auto mb-3 text-gold" size={26} strokeWidth={1.5} />
+          <div className="font-display text-xl text-gold md:text-2xl">
             {s.countTo ? <Counter to={s.countTo} suffix={s.suffix} /> : s.value}
           </div>
           <p className="mt-2 text-sm leading-snug text-cream">{s.label}</p>

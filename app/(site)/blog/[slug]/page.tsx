@@ -9,6 +9,7 @@ import { getPostBySlug, getAllPostSlugs } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import { site } from "@/lib/site";
 import { jsonLd } from "@/lib/schema";
+import { formatDate } from "@/lib/format";
 
 export const revalidate = 60;
 
@@ -37,14 +38,6 @@ export async function generateMetadata({
         : undefined,
     },
   };
-}
-
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
 }
 
 export default async function BlogPost({

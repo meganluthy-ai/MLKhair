@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Microscope, Scissors, Sparkles } from "lucide-react";
 import { Section, Eyebrow, AnswerSummary, BookButton, QuizButton, TrustRow } from "@/components/ui";
 import Reveal from "@/components/Reveal";
@@ -10,7 +11,7 @@ import { site } from "@/lib/site";
 import { faqSchema, jsonLd, type Faq } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "MLK Hair | Trichologist in Idaho Falls",
+  title: { absolute: "MLK Hair | Trichologist in Idaho Falls" },
   description:
     "Megan Luthy is an AMCA-certified clinical trichologist in Idaho Falls and Rexburg. Find the real cause of thinning hair with a comprehensive scalp analysis, then a science-based plan to treat it.",
   alternates: { canonical: "/" },
@@ -90,6 +91,7 @@ const faqs: Faq[] = [
 const pillars = [
   {
     icon: Microscope,
+    image: "/images/scalp-analysis.jpg",
     eyebrow: "The root work",
     title: "Hair & Scalp Health",
     body: "Shedding, thinning, a wider part, itching, flaking, or scalp irritation? Start here for care that looks beyond the surface.",
@@ -98,6 +100,7 @@ const pillars = [
   },
   {
     icon: Scissors,
+    image: "/images/megan-suite.jpg",
     eyebrow: "Behind the chair",
     title: "Salon Services",
     body: "Custom cuts and professional color designed for beautiful shine, lasting coverage, and long-term hair and scalp health.",
@@ -106,6 +109,7 @@ const pillars = [
   },
   {
     icon: Sparkles,
+    image: "/images/at-home.jpg",
     eyebrow: "Between visits",
     title: "At-Home Care",
     body: "Simple product guidance for your scalp, hair type, and goals, so your routine supports the work we are doing.",
@@ -194,33 +198,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Three pillars as named editorial blocks, not emoji cards */}
-      <Section alt>
+      {/* Three service tiles with imagery and a staggered layout */}
+      <Section>
         <Reveal>
           <Eyebrow>What we do</Eyebrow>
           <h2 className="max-w-2xl font-display text-3xl text-evergreen md:text-4xl">
             One practice. Three ways to support healthier hair.
           </h2>
         </Reveal>
-        <div className="mt-12 grid gap-8 md:grid-cols-3">
+        <div className="mt-12 grid items-start gap-8 md:grid-cols-3">
           {pillars.map((p, i) => (
-            <Reveal key={p.title}>
-              <div
-                className="lift flex h-full flex-col rounded-md border border-line bg-cream p-7"
-                style={{ transitionDelay: `${i * 80}ms` }}
-              >
-                <p.icon className="text-gold-dark" size={28} strokeWidth={1.5} />
-                <p className="eyebrow mt-5">{p.eyebrow}</p>
-                <h3 className="mt-2 font-display text-2xl text-evergreen">
-                  {p.title}
-                </h3>
-                <p className="mt-3 flex-1 text-ink/80">{p.body}</p>
-                <Link
-                  href={p.href}
-                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-dark hover:text-gold-dark"
-                >
-                  {p.cta} <ArrowRight size={16} />
-                </Link>
+            <Reveal key={p.title} className={i === 1 ? "md:mt-12" : ""}>
+              <div className="lift flex h-full flex-col overflow-hidden rounded-md border border-line bg-soft-white">
+                <div className="relative aspect-[4/3] w-full">
+                  <Image
+                    src={p.image}
+                    alt={p.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <span className="absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/90">
+                    <p.icon className="text-gold-dark" size={18} strokeWidth={1.75} />
+                  </span>
+                </div>
+                <div className="flex flex-1 flex-col p-7">
+                  <p className="eyebrow">{p.eyebrow}</p>
+                  <h3 className="mt-2 font-display text-2xl text-evergreen">
+                    {p.title}
+                  </h3>
+                  <p className="mt-3 flex-1 text-ink/80">{p.body}</p>
+                  <Link
+                    href={p.href}
+                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-dark hover:text-gold-dark"
+                  >
+                    {p.cta} <ArrowRight size={16} />
+                  </Link>
+                </div>
               </div>
             </Reveal>
           ))}

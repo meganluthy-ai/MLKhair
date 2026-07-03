@@ -21,8 +21,8 @@ export default function Nav() {
     <header
       className={`sticky top-0 z-50 border-b transition-all duration-200 ${
         scrolled
-          ? "border-line bg-cream/95 backdrop-blur py-2 shadow-[0_1px_0_rgba(31,29,26,0.04)]"
-          : "border-line/70 bg-cream py-4"
+          ? "border-line bg-white py-2 shadow-[0_1px_0_rgba(31,29,26,0.06)]"
+          : "border-line bg-white py-4"
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5">
@@ -60,6 +60,8 @@ export default function Nav() {
         <button
           type="button"
           aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
           className="lg:hidden text-evergreen"
           onClick={() => setOpen((v) => !v)}
         >
@@ -68,7 +70,7 @@ export default function Nav() {
       </div>
 
       {open && (
-        <nav className="lg:hidden border-t border-line bg-cream px-5 py-4">
+        <nav id="mobile-menu" className="lg:hidden border-t border-line bg-white px-5 py-4">
           <div className="flex flex-col gap-3">
             {nav.map((item) => (
               <Link

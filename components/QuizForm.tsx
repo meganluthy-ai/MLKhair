@@ -65,6 +65,7 @@ export default function QuizForm() {
   const [step, setStep] = useState(0);
   const [status, setStatus] = useState<Status>("idle");
   const [showErrors, setShowErrors] = useState(false);
+  const [company, setCompany] = useState(""); // honeypot: real people leave this empty
 
   const visibleSections = useMemo(
     () => intake.filter((s) => passShowIf(s.showIf, answers)),
@@ -125,6 +126,7 @@ export default function QuizForm() {
             phone: (answers.phone as string) || "",
           },
           summary: buildSummary(answers),
+          company,
         }),
       });
       if (!res.ok) throw new Error("failed");
@@ -191,6 +193,18 @@ export default function QuizForm() {
           </div>
         </div>
       )}
+
+      {/* honeypot */}
+      <input
+        type="text"
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        className="hidden"
+        aria-hidden
+        value={company}
+        onChange={(e) => setCompany(e.target.value)}
+      />
 
       <div className="mt-9 flex items-center justify-between">
         <button

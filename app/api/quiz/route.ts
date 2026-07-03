@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { site } from "@/lib/site";
+import { esc, isEmail } from "@/lib/escape";
 
 export const runtime = "nodejs";
 
@@ -9,10 +10,31 @@ type SummarySection = { section: string; items: Item[] };
 type Payload = {
   contact: { name: string; email: string; phone?: string };
   summary: SummarySection[];
+  company?: string;
 };
 
-function esc(s: string) {
-  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+// Abuse caps: the real intake is nowhere near these limits.
+const MAX_SECTIONS = 30;
+const MAX_ITEMS = 30;
+const MAX_STRING = 500;
+
+function validString(s: unknown): s is string {
+  return typeof s === "string" && s.length <= MAX_STRING;
+}
+
+function validSummary(summary: unknown): summary is SummarySection[] {
+  if (!Array.isArray(summary) || summary.length > MAX_SECTIONS) return false;
+  return summary.every(
+    (s) =>
+      s &&
+      validString(s.section) &&
+      Array.isArray(s.items) &&
+      s.items.length <= MAX_ITEMS &&
+      s.items.every((it: unknown) => {
+        const item = it as Item;
+        return item && validString(item.label) && validString(item.value);
+      }),
+  );
 }
 
 export async function POST(req: Request) {
@@ -27,9 +49,25 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
   }
 
-  const { contact, summary } = body;
+  const { contact, summary, company } = body;
+
+  // Honeypot: real people leave this empty.
+  if (company) return NextResponse.json({ ok: true });
   if (!contact?.name || !contact?.email) {
     return NextResponse.json({ error: "Missing contact info" }, { status: 400 });
+  }
+  if (
+    !validString(contact.name) ||
+    !validString(contact.email) ||
+    (contact.phone !== undefined && !validString(contact.phone))
+  ) {
+    return NextResponse.json({ error: "Invalid contact info" }, { status: 400 });
+  }
+  if (!isEmail(contact.email)) {
+    return NextResponse.json({ error: "Invalid email" }, { status: 400 });
+  }
+  if (summary !== undefined && !validSummary(summary)) {
+    return NextResponse.json({ error: "Invalid summary" }, { status: 400 });
   }
 
   // Full intake for Megan: section headings + label/value rows.

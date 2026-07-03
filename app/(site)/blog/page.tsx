@@ -6,6 +6,7 @@ import { Section, Eyebrow } from "@/components/ui";
 import Reveal from "@/components/Reveal";
 import { getAllPosts } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+import { formatDate } from "@/lib/format";
 
 export const revalidate = 60;
 
@@ -15,14 +16,6 @@ export const metadata: Metadata = {
     "Science-first answers about hair loss, thinning, scalp health, and what actually works, from Megan Luthy, a clinical trichologist in Idaho Falls.",
   alternates: { canonical: "/blog" },
 };
-
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
 
 export default async function Blog() {
   const posts = await getAllPosts();

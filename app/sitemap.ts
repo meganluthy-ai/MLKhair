@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 import { getAllPostSlugs } from "@/sanity/lib/queries";
 
+export const revalidate = 3600;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const routes = [
     { path: "/", priority: 1.0 },
@@ -26,7 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getAllPostSlugs();
   const postEntries: MetadataRoute.Sitemap = posts.map((p) => ({
     url: `${site.url}/blog/${p.slug}`,
-    lastModified: new Date(),
+    lastModified: p.publishedAt ? new Date(p.publishedAt) : new Date(),
     changeFrequency: "monthly",
     priority: 0.6,
   }));

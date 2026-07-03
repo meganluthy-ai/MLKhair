@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { esc, isEmail } from "@/lib/escape";
 
 export const runtime = "nodejs";
 
@@ -8,7 +9,7 @@ export async function POST(req: Request) {
   const notify = process.env.MLK_NOTIFY_EMAIL;
   const from = process.env.MLK_FROM_EMAIL || "hello@mlkhair.com";
 
-  let body: Record<string, string>;
+  let body: Record<string, unknown>;
   try {
     body = await req.json();
   } catch {
@@ -22,14 +23,28 @@ export async function POST(req: Request) {
   if (!name || !email || !message) {
     return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
   }
+  if (
+    typeof name !== "string" ||
+    typeof email !== "string" ||
+    typeof message !== "string" ||
+    (phone !== undefined && typeof phone !== "string")
+  ) {
+    return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+  }
+  if ([name, email, phone || ""].some((s) => s.length > 200) || message.length > 5000) {
+    return NextResponse.json({ error: "Field too long" }, { status: 400 });
+  }
+  if (!isEmail(email)) {
+    return NextResponse.json({ error: "Invalid email" }, { status: 400 });
+  }
 
   const html = `
     <div style="font-family:system-ui,sans-serif;color:#1f1d1a">
       <h2 style="color:#2e4a3d">New message from mlkhair.com</h2>
-      <p><strong>Name:</strong> ${name}<br/>
-         <strong>Email:</strong> ${email}<br/>
-         <strong>Phone:</strong> ${phone || "(not provided)"}</p>
-      <p style="white-space:pre-wrap">${message}</p>
+      <p><strong>Name:</strong> ${esc(name)}<br/>
+         <strong>Email:</strong> ${esc(email)}<br/>
+         <strong>Phone:</strong> ${esc(phone || "(not provided)")}</p>
+      <p style="white-space:pre-wrap">${esc(message)}</p>
     </div>`;
 
   if (!apiKey || !notify) {

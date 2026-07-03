@@ -30,7 +30,7 @@ export async function getAllPosts(): Promise<PostCard[]> {
 export async function getPostBySlug(slug: string) {
   if (!sanityConfigured) return null;
   return client.fetch(
-    `*[_type == "post" && slug.current == $slug][0] {
+    `*[_type == "post" && slug.current == $slug && defined(publishedAt) && publishedAt <= now()][0] {
       _id, title, slug, publishedAt, excerpt, readTime, mainImage, body,
       seoTitle, seoDescription,
       author->{ name, image, bio },
@@ -40,7 +40,9 @@ export async function getPostBySlug(slug: string) {
   );
 }
 
-export async function getAllPostSlugs(): Promise<{ slug: string }[]> {
+export async function getAllPostSlugs(): Promise<{ slug: string; publishedAt: string }[]> {
   if (!sanityConfigured) return [];
-  return client.fetch(`*[_type == "post" && defined(slug.current)]{ "slug": slug.current }`);
+  return client.fetch(
+    `*[_type == "post" && defined(slug.current) && defined(publishedAt) && publishedAt <= now()]{ "slug": slug.current, publishedAt }`,
+  );
 }

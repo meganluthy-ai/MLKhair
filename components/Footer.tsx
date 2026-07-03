@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { nav, site } from "@/lib/site";
 
-const year = 2026; // real year, not the Wix "© 2035" leftover (build brief §6)
+const year = new Date().getFullYear(); // real year, not the Wix "© 2035" leftover (build brief §6)
 
 export default function Footer() {
   return (

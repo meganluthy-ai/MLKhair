@@ -46,7 +46,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${fraunces.variable} ${interTight.variable}`}>
-      <body>{children}</body>
+      <body>
+        {/* JS disabled: fallback for browsers without @media (scripting) support */}
+        <noscript>
+          <style>{`.reveal { opacity: 1; transform: none; transition: none; }`}</style>
+        </noscript>
+        {children}
+      </body>
     </html>
   );
 }

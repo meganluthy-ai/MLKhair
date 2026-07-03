@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 const faqItems: (Faq & { icon: JSX.Element })[] = [
   {
-    icon: <Microscope size={18} strokeWidth={1.75} className="text-gold-dark" />,
+    icon: <Microscope size={17} strokeWidth={1.75} className="text-gold-dark/70" />,
     q: "What is trichology?",
     a: [
       "Trichology is the study of the hair and scalp, including how hair grows, why shedding happens, how the scalp environment affects the follicle, and what factors may contribute to hair changes.",
@@ -33,7 +33,7 @@ const faqItems: (Faq & { icon: JSX.Element })[] = [
     ],
   },
   {
-    icon: <Award size={18} strokeWidth={1.75} className="text-gold-dark" />,
+    icon: <Award size={17} strokeWidth={1.75} className="text-gold-dark/70" />,
     q: "What makes Megan's perspective different?",
     a: [
       "Megan combines more than seventeen years as a licensed cosmetologist with clinical trichology training and AMCA certification.",
@@ -41,7 +41,7 @@ const faqItems: (Faq & { icon: JSX.Element })[] = [
     ],
   },
   {
-    icon: <Stethoscope size={18} strokeWidth={1.75} className="text-gold-dark" />,
+    icon: <Stethoscope size={17} strokeWidth={1.75} className="text-gold-dark/70" />,
     q: "What concerns can trichology support?",
     a: [
       "Trichology can support concerns such as excessive shedding, gradual thinning, a wider part, loss of style options due to hair changes, reduced density, scalp irritation, flaking, itching, buildup, breakage, and changes in hair quality.",
@@ -49,7 +49,7 @@ const faqItems: (Faq & { icon: JSX.Element })[] = [
     ],
   },
   {
-    icon: <Layers size={18} strokeWidth={1.75} className="text-gold-dark" />,
+    icon: <Layers size={17} strokeWidth={1.75} className="text-gold-dark/70" />,
     q: "Why does trichology look at more than one factor?",
     a: [
       "Hair loss is not always caused by one isolated issue. Sometimes there is one clear driver, and other times the pattern reflects several overlapping factors.",
@@ -57,7 +57,7 @@ const faqItems: (Faq & { icon: JSX.Element })[] = [
     ],
   },
   {
-    icon: <ScanSearch size={18} strokeWidth={1.75} className="text-gold-dark" />,
+    icon: <ScanSearch size={17} strokeWidth={1.75} className="text-gold-dark/70" />,
     q: "What happens during a scalp analysis?",
     a: [
       "Megan reviews your hair history, shedding timeline, health and lifestyle factors, medications, routine, and goals. She then evaluates your hair and scalp, uses scope imaging for a closer look, and documents baseline findings.",
@@ -65,7 +65,7 @@ const faqItems: (Faq & { icon: JSX.Element })[] = [
     ],
   },
   {
-    icon: <Clock size={18} strokeWidth={1.75} className="text-gold-dark" />,
+    icon: <Clock size={17} strokeWidth={1.75} className="text-gold-dark/70" />,
     q: "How long does it take to see results?",
     a: [
       "Hair growth takes time. Many clients begin evaluating early progress within 2 to 4 months, but visible changes often take longer depending on the type of hair loss, how long it has been present, follicle health, consistency, and whether scarring or permanent damage is involved.",
@@ -73,7 +73,7 @@ const faqItems: (Faq & { icon: JSX.Element })[] = [
     ],
   },
   {
-    icon: <Scale size={18} strokeWidth={1.75} className="text-gold-dark" />,
+    icon: <Scale size={17} strokeWidth={1.75} className="text-gold-dark/70" />,
     q: "Trichologist or dermatologist, what is the difference?",
     a: [
       "A dermatologist is a medical doctor who can diagnose, prescribe medication, perform biopsies, and treat medical skin conditions.",
@@ -81,7 +81,7 @@ const faqItems: (Faq & { icon: JSX.Element })[] = [
     ],
   },
   {
-    icon: <Users size={18} strokeWidth={1.75} className="text-gold-dark" />,
+    icon: <Users size={17} strokeWidth={1.75} className="text-gold-dark/70" />,
     q: "Do you treat men, or only women?",
     a: [
       "Both. Hair loss and scalp concerns can affect men and women, though the pattern may look different from person to person. Male pattern hair loss can begin as early as the late teens or early 20s, while many women also experience hair loss at some point in their lives.",
@@ -89,7 +89,7 @@ const faqItems: (Faq & { icon: JSX.Element })[] = [
     ],
   },
   {
-    icon: <Lock size={18} strokeWidth={1.75} className="text-gold-dark" />,
+    icon: <Lock size={17} strokeWidth={1.75} className="text-gold-dark/70" />,
     q: "Do I need a referral, and is it confidential?",
     a: [
       "No referral is needed. You can book directly with Megan.",

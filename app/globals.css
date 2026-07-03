@@ -122,6 +122,10 @@ h1, h2, h3, h4 {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+/* JS disabled: never hide content behind the scroll-in effect */
+@media (scripting: none) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
 
 /* Dark (olive) sections: flip text + accent colors for contrast on evergreen */
 .on-dark h1,
