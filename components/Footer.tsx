@@ -79,6 +79,9 @@ export default function Footer() {
             <Link href="/privacy" className="hover:text-evergreen">
               Privacy
             </Link>
+            <Link href="/terms" className="hover:text-evergreen">
+              Terms
+            </Link>
             <Link href="/accessibility" className="hover:text-evergreen">
               Accessibility
             </Link>
