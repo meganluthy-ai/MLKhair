@@ -58,6 +58,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <Link href="/financing" className="hover:text-evergreen">
+                  Payment plans with Cherry
+                </Link>
+              </li>
+              <li>
                 <a
                   href={site.bookingUrl}
                   target="_blank"
