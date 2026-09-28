@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { nav, site } from "@/lib/site";
+import { navLinks, site } from "@/lib/site";
 
 const year = new Date().getFullYear(); // real year, not the Wix "© 2035" leftover (build brief §6)
 
@@ -26,7 +26,7 @@ export default function Footer() {
           <div>
             <p className="eyebrow mb-3">Explore</p>
             <ul className="space-y-2 text-sm">
-              {nav.map((item) => (
+              {navLinks.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
