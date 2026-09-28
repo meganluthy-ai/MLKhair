@@ -55,25 +55,31 @@ export const site = {
 
 export type NavItem = {
   label: string;
-  href: string;
+  // Omit href for a menu-only parent (e.g. "More") that just opens its dropdown.
+  href?: string;
   // Optional dropdown entries (desktop hover/focus menu, indented on mobile).
   children?: { label: string; href: string }[];
 };
 
 export const nav: NavItem[] = [
-  {
-    label: "Hair Loss",
-    href: "/hair-loss",
-    children: [
-      { label: "Hair Loss Treatment", href: "/hair-loss" },
-      { label: "Payment Plans", href: "/financing" },
-    ],
-  },
+  { label: "Hair Loss", href: "/hair-loss" },
   { label: "Our Approach", href: "/approach" },
   { label: "Trichology", href: "/trichology" },
   { label: "Salon", href: "/services" },
   { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog" },
-  { label: "Quiz", href: "/quiz" },
-  { label: "Contact", href: "/contact" },
+  {
+    label: "More",
+    children: [
+      { label: "Payment Plans", href: "/financing" },
+      { label: "Blog", href: "/blog" },
+      { label: "Quiz", href: "/quiz" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
 ];
+
+// Every destination in the nav, dropdown entries included, for flat lists like the footer.
+export const navLinks = nav.flatMap((item) => [
+  ...(item.href ? [{ label: item.label, href: item.href }] : []),
+  ...(item.children ?? []),
+]);

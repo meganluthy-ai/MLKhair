@@ -40,19 +40,30 @@ export default function Nav() {
         <nav className="hidden items-center gap-7 lg:flex">
           {nav.map((item) =>
             item.children ? (
-              <div key={item.href} className="group relative">
-                <Link
-                  href={item.href}
-                  aria-haspopup="true"
-                  className="flex items-center gap-1 text-sm font-medium text-ink/80 transition-colors hover:text-evergreen"
-                >
-                  {item.label}
-                  <ChevronDown
-                    size={14}
-                    aria-hidden
-                    className="transition-transform group-hover:rotate-180 group-focus-within:rotate-180"
-                  />
-                </Link>
+              <div key={item.label} className="group relative">
+                {(() => {
+                  const cls =
+                    "flex items-center gap-1 text-sm font-medium text-ink/80 transition-colors hover:text-evergreen";
+                  const inner = (
+                    <>
+                      {item.label}
+                      <ChevronDown
+                        size={14}
+                        aria-hidden
+                        className="transition-transform group-hover:rotate-180 group-focus-within:rotate-180"
+                      />
+                    </>
+                  );
+                  return item.href ? (
+                    <Link href={item.href} aria-haspopup="true" className={cls}>
+                      {inner}
+                    </Link>
+                  ) : (
+                    <button type="button" aria-haspopup="true" className={cls}>
+                      {inner}
+                    </button>
+                  );
+                })()}
                 {/* pt-3 bridges the gap so the menu stays open while the cursor moves down */}
                 <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-opacity group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   <ul className="min-w-[11rem] rounded-md border border-line bg-white py-2 shadow-[0_8px_24px_rgba(31,29,26,0.08)]">
@@ -73,8 +84,8 @@ export default function Nav() {
               </div>
             ) : (
               <Link
-                key={item.href}
-                href={item.href}
+                key={item.label}
+                href={item.href!}
                 className="text-sm font-medium text-ink/80 transition-colors hover:text-evergreen"
               >
                 {item.label}
@@ -108,7 +119,7 @@ export default function Nav() {
           <div className="flex flex-col gap-3">
             {nav.map((item) =>
               item.children ? (
-                <div key={item.href}>
+                <div key={item.label}>
                   <p className="py-1 text-base font-medium text-ink/85">{item.label}</p>
                   <div className="ml-4 flex flex-col gap-2 border-l border-line pl-4 pt-1">
                     {item.children.map((child) => (
@@ -125,8 +136,8 @@ export default function Nav() {
                 </div>
               ) : (
                 <Link
-                  key={item.href}
-                  href={item.href}
+                  key={item.label}
+                  href={item.href!}
                   className="py-1 text-base font-medium text-ink/85"
                   onClick={() => setOpen(false)}
                 >
