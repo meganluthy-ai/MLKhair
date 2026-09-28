@@ -53,8 +53,22 @@ export const site = {
   googleSiteVerification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "",
 } as const;
 
-export const nav = [
-  { label: "Hair Loss", href: "/hair-loss" },
+export type NavItem = {
+  label: string;
+  href: string;
+  // Optional dropdown entries (desktop hover/focus menu, indented on mobile).
+  children?: { label: string; href: string }[];
+};
+
+export const nav: NavItem[] = [
+  {
+    label: "Hair Loss",
+    href: "/hair-loss",
+    children: [
+      { label: "Hair Loss Treatment", href: "/hair-loss" },
+      { label: "Payment Plans", href: "/financing" },
+    ],
+  },
   { label: "Our Approach", href: "/approach" },
   { label: "Trichology", href: "/trichology" },
   { label: "Salon", href: "/services" },

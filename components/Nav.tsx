@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { nav, site } from "@/lib/site";
 
 export default function Nav() {
@@ -38,15 +38,49 @@ export default function Nav() {
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-ink/80 transition-colors hover:text-evergreen"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {nav.map((item) =>
+            item.children ? (
+              <div key={item.href} className="group relative">
+                <Link
+                  href={item.href}
+                  aria-haspopup="true"
+                  className="flex items-center gap-1 text-sm font-medium text-ink/80 transition-colors hover:text-evergreen"
+                >
+                  {item.label}
+                  <ChevronDown
+                    size={14}
+                    aria-hidden
+                    className="transition-transform group-hover:rotate-180 group-focus-within:rotate-180"
+                  />
+                </Link>
+                {/* pt-3 bridges the gap so the menu stays open while the cursor moves down */}
+                <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-opacity group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                  <ul className="min-w-[11rem] rounded-md border border-line bg-white py-2 shadow-[0_8px_24px_rgba(31,29,26,0.08)]">
+                    {item.children.map((child) => (
+                      <li key={child.href}>
+                        <Link
+                          href={child.href}
+                          // Drop focus so :focus-within doesn't hold the menu open after navigating.
+                          onClick={(e) => e.currentTarget.blur()}
+                          className="block whitespace-nowrap px-4 py-2 text-sm text-ink/80 transition-colors hover:bg-soft-white hover:text-evergreen"
+                        >
+                          {child.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm font-medium text-ink/80 transition-colors hover:text-evergreen"
+              >
+                {item.label}
+              </Link>
+            )
+          )}
           <a
             href={site.bookingUrlMain}
             target="_blank"
@@ -72,16 +106,34 @@ export default function Nav() {
       {open && (
         <nav id="mobile-menu" className="lg:hidden border-t border-line bg-white px-5 py-4">
           <div className="flex flex-col gap-3">
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="py-1 text-base font-medium text-ink/85"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {nav.map((item) =>
+              item.children ? (
+                <div key={item.href}>
+                  <p className="py-1 text-base font-medium text-ink/85">{item.label}</p>
+                  <div className="ml-4 flex flex-col gap-2 border-l border-line pl-4 pt-1">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        className="py-1 text-base text-ink/75"
+                        onClick={() => setOpen(false)}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="py-1 text-base font-medium text-ink/85"
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
             <a
               href={site.bookingUrlMain}
               target="_blank"
