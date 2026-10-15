@@ -1,4 +1,3 @@
-import Script from "next/script";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { localBusinessSchema, jsonLd } from "@/lib/schema";
@@ -19,13 +18,15 @@ export default function SiteLayout({
       <Nav />
       <main>{children}</main>
       <Footer />
-      {/* LeadConnector (GoHighLevel) chat widget, loaded site-wide after the page is interactive. */}
-      <Script
+      {/* LeadConnector (GoHighLevel) chat widget. A plain <script> tag (not
+          next/script) so it appears in each page's HTML body, where the
+          LeadConnector install check looks for it. */}
+      <script
         src="https://widgets.leadconnectorhq.com/loader.js"
         data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
         data-widget-id="6ad12980cc8a6767eec1be43"
         data-source="WEB_USER"
-        strategy="afterInteractive"
+        async
       />
     </>
   );
