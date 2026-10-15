@@ -1,7 +1,6 @@
 import Script from "next/script";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import LetsChat from "@/components/LetsChat";
 import { localBusinessSchema, jsonLd } from "@/lib/schema";
 
 // Chrome for the public marketing site. The /studio route lives outside this
@@ -20,7 +19,6 @@ export default function SiteLayout({
       <Nav />
       <main>{children}</main>
       <Footer />
-      <LetsChat />
       {/* LeadConnector (GoHighLevel) chat widget, loaded site-wide after the page is interactive. */}
       <Script
         src="https://widgets.leadconnectorhq.com/loader.js"
